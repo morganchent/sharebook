@@ -5,7 +5,7 @@
 
       <view class="info-header-texts">
         <text class="title-text">{{title}}</text>
-        <text class="author-text">{{author[0]}}/{{translator[0]}}</text>
+        <text class="author-text">{{author}}</text>
         <text class="price-text">{{price}}</text>
         <text class="rating-text">{{rating.average}}</text>
       </view>
@@ -13,4 +13,6 @@
       
   <view class="section-title">内容简介</view>
   <view class="summary-text">{{summary}}</view>
+
+  <button class="lend-btn" size="{{primarySize}}" bindtap="onLendClick" type="primary"> 借出 </button>
 </view>

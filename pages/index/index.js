@@ -15,7 +15,6 @@ Page({
   onScanBtnClick: function() {
     wx.scanCode({
       success: (res) => {
-        console.log(res)
         wx.navigateTo({
           url: '../detail/detail?isbn=' + res.result
         })
