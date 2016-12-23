@@ -1,0 +1,8 @@
+<!--index.wxml-->
+<view class="container">
+  <view  bindtap="onImageClick" class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+  <button class="scan-button" bindtap="onScanBtnClick" type="primary"> 扫一扫 </button>
+</view>

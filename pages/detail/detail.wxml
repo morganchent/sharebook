@@ -1,0 +1,16 @@
+<!--detail.wxml-->
+<view class="container">
+  <view class="info-header">
+      <image class="info-header-image" src="{{image}}"></image>
+
+      <view class="info-header-texts">
+        <text class="title-text">{{title}}</text>
+        <text class="author-text">{{author[0]}}/{{translator[0]}}</text>
+        <text class="price-text">{{price}}</text>
+        <text class="rating-text">{{rating.average}}</text>
+      </view>
+  </view>
+      
+  <view class="section-title">内容简介</view>
+  <view class="summary-text">{{summary}}</view>
+</view>
