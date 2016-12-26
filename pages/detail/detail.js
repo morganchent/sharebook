@@ -1,7 +1,8 @@
 //detail.js
-//获取应用实例
+
 var BOOK_INFO_API = 'https://api.douban.com/v2/book/isbn/'
 
+//获取应用实例
 var app = getApp()
 Page({
   data: {
@@ -38,6 +39,14 @@ Page({
     this.queryBookInfo(options.isbn)
   },
 
+  onShareAppMessage: function () {
+    return {
+      title: '飞鸽',
+      desc: '我用“飞鸽”APP借了一本《'+this.data.title+'》',
+      path: '/pages/detail/detail?isbn='+this.data.isbn10
+    }
+  },
+
   queryBookInfo: function(isbn){
     wx.showNavigationBarLoading()
     var that = this
@@ -59,6 +68,14 @@ Page({
       },
       complete: function() {
         wx.hideNavigationBarLoading()
+      }
+    })
+  },
+
+  onLendClick: function(){
+    wx.chooseLocation({
+      success: function(res) {
+        console.log(res)
       }
     })
   }

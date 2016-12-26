@@ -1,21 +1,59 @@
 /**index.wxss**/
-.userinfo {
-  display: flex;
+.container {
+  height: 100%;
+  display: block;
   flex-direction: column;
-  align-items: center;
-}
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
-.userinfo-nickname {
-  color: #aaa;
+  justify-content: space-between;
+  padding: 20rpx 20rpx;
+  box-sizing: border-box;
 }
 
 .scan-button {
-  margin-top: 200px;
+  margin-bottom: 20rpx;
+}
+
+.body{
+    overflow: hidden;
+}
+
+.widget{
+    position: relative;
+    padding-top: 26rpx;
+    padding-bottom: 26rpx;
+    padding-left: 40rpx;
+    padding-right: 40rpx;
+}
+
+.list-item{
+    margin-bottom: 20rpx;
+}
+
+.info-header-image{
+  width: 120rpx;
+  height: 176rpx;
+}
+
+.title-text{
+  display: block;
+  font-size: 32rpx;
+}
+
+.author-text{
+  display: block;
+  font-size: 24rpx;
+  color: #AAAAAA;
+  margin-top: 4rpx;
+}
+
+.price-text{
+  display: block;
+  font-size: 28rpx;
+  color: #FDBC40;
+  margin-top: 4rpx;
+}
+
+.rating-text{
+  display: block;
+  font-size: 28rpx;
+  margin-top: 4rpx;
 }

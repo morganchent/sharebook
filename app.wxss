@@ -8,3 +8,53 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
+
+.info-header{
+  display: flex;
+  flex-direction: row;
+}
+
+.info-header-image{
+  width: 150rpx;
+  height: 219rpx;
+}
+
+.info-header-texts{
+  display: block;
+  flex-direction: column;
+  margin-left: 20rpx;
+}
+
+.title-text{
+  display: block;
+  font-size: 40rpx;
+}
+
+.author-text{
+  display: block;
+  font-size: 24rpx;
+  color: #AAAAAA;
+  margin-top: 4rpx;
+}
+
+.price-text{
+  display: block;
+  font-size: 36rpx;
+  color: #FDBC40;
+  margin-top: 4rpx;
+}
+
+.rating-text{
+  display: block;
+  font-size: 32rpx;
+  margin-top: 4rpx;
+}
+
+.section-title{
+    display: block;
+    margin-top: 50rpx;
+    margin-bottom: 20rpx;
+    padding: 20rpx 0rpx;
+    font-size: 32rpx;
+    border-bottom: 1px solid #CCCCCC;
+}

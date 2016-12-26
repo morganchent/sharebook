@@ -1,14 +1,28 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/mine/mine",
     "pages/detail/detail",
     "pages/logs/logs"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#37363C",
-    "navigationBarTitleText": "书共享",
+    "navigationBarTitleText": "飞鸽",
     "navigationBarTextStyle":"white"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath": "image/test.jpg",
+      "selectedIconPath": "image/test.jpg"
+    },{
+      "pagePath": "pages/mine/mine",
+      "text": "我的",
+      "iconPath": "image/test.jpg",
+      "selectedIconPath": "image/test.jpg"
+    }]
   },
   "networkTimeout": {
     "request": 10000,

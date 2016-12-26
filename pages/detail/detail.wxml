@@ -7,7 +7,7 @@
         <text class="title-text">{{title}}</text>
         <text class="author-text">{{author}}</text>
         <text class="price-text">{{price}}</text>
-        <text class="rating-text">{{rating.average}}</text>
+        <text class="rating-text">{{rating.average}}分</text>
       </view>
   </view>
       
