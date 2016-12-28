@@ -14,5 +14,12 @@
   <view class="section-title">内容简介</view>
   <view class="summary-text">{{summary}}</view>
 
-  <button class="lend-btn" size="{{primarySize}}" bindtap="onLendClick" type="primary"> 借出 </button>
+  <!--<view class="divider-line"></view>
+  <view class="flex-row" style="display: flex;flex-direction: row;" bindtap="onLocationClick">
+    <view class="location-text">所在位置</view>
+    <image></image>
+  </view>
+  <view class="divider-line"></view>-->
+  <button  wx:if="{{isLend == 1}}" class="lend-btn" size="{{primarySize}}" bindtap="onLendClick" type="primary"> 借出 </button>
+  <button  wx:else class="lend-btn" size="{{primarySize}}" bindtap="onBorrowClick" type="primary"> 借阅 </button>
 </view>

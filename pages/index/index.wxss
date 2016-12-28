@@ -25,7 +25,7 @@
 }
 
 .list-item{
-    margin-bottom: 20rpx;
+    margin-bottom: 40rpx;
 }
 
 .info-header-image{
@@ -35,25 +35,32 @@
 
 .title-text{
   display: block;
-  font-size: 32rpx;
+  font-size: 36rpx;
+  margin-top: 6rpx;
 }
 
 .author-text{
   display: block;
-  font-size: 24rpx;
+  font-size: 28rpx;
   color: #AAAAAA;
-  margin-top: 4rpx;
+  margin-top: 6rpx;
 }
 
 .price-text{
   display: block;
   font-size: 28rpx;
   color: #FDBC40;
-  margin-top: 4rpx;
+  margin-top: 6rpx;
 }
 
 .rating-text{
   display: block;
   font-size: 28rpx;
-  margin-top: 4rpx;
+  margin-top: 6rpx;
+}
+
+.lbs-text{
+  display: block;
+  font-size: 32rpx;
+  margin-top: 6rpx;
 }

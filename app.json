@@ -6,7 +6,7 @@
     "pages/logs/logs"
   ],
   "window":{
-    "backgroundTextStyle":"light",
+    "backgroundTextStyle":"dark",
     "navigationBarBackgroundColor": "#37363C",
     "navigationBarTitleText": "飞鸽",
     "navigationBarTextStyle":"white"
@@ -15,13 +15,13 @@
     "list": [{
       "pagePath": "pages/index/index",
       "text": "首页",
-      "iconPath": "image/test.jpg",
-      "selectedIconPath": "image/test.jpg"
+      "iconPath": "image/home-normal.png",
+      "selectedIconPath": "image/home.png"
     },{
       "pagePath": "pages/mine/mine",
       "text": "我的",
-      "iconPath": "image/test.jpg",
-      "selectedIconPath": "image/test.jpg"
+      "iconPath": "image/user-normal.png",
+      "selectedIconPath": "image/user.png"
     }]
   },
   "networkTimeout": {

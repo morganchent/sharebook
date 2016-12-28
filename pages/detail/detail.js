@@ -2,8 +2,9 @@
 
 var BOOK_INFO_API = 'https://api.douban.com/v2/book/isbn/'
 
-//获取应用实例
+const AV = require('../../libs/av-weapp.js')
 var app = getApp()
+
 Page({
   data: {
     // image: "https://img3.doubanio.com/mpic/s3294754.jpg",
@@ -36,6 +37,7 @@ Page({
     // },
   },
   onLoad: function (options) {
+    this.data.isLend = options.isLend
     this.queryBookInfo(options.isbn)
   },
 
@@ -53,7 +55,11 @@ Page({
     wx.request({
       url: BOOK_INFO_API + isbn,
       success: function(res){
+        var isLend = that.data.isLend
+        res.data.isLend = isLend
         that.setData(res.data)
+        console.log('1111')
+        console.log(that.data.isLend)
       },
       fail: function() {
         // wx.showModal({
@@ -72,11 +78,43 @@ Page({
     })
   },
 
-  onLendClick: function(){
+  onLocationClick: function(){
+    var that = this
     wx.chooseLocation({
       success: function(res) {
-        console.log(res)
+        app.globalData.lbs = res
+        console.log(app.globalData.lbs)
       }
+    })
+  },
+
+  onLendClick: function(){
+    this.saveBookInfo()
+    this.saveStatus()
+  },
+
+  saveBookInfo: function(){
+    var Book = AV.Object.extend('Book')
+    var book = new Book(this.data)
+    book.save().then(function (book) {
+      console.log('objectId is ' + book.id)
+    }, function (error) {
+      console.error(error)
+    })
+  },
+
+  saveStatus: function(){
+    var Feed = AV.Object.extend('Feed')
+    var feed = new Feed()
+    var point = new AV.GeoPoint(app.globalData.lbs.latitude, app.globalData.lbs.longitude)
+    feed.set('whereCreated', point)
+    feed.set('book', this.data)
+    feed.set('owner', app.globalData.userInfo)
+    
+    feed.save().then(function (feed) {
+      console.log('objectId is ' + feed.id)
+    }, function (error) {
+      console.error(error)
     })
   }
 })

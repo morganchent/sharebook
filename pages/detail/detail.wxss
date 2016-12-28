@@ -12,6 +12,14 @@
     display: block;
     font-size: 28rpx;
     color: #999999;
+    margin-bottom: 50rpx;
+}
+
+.location-text{
+    display: block;
+    font-size: 28rpx;
+    margin-top: 30rpx;
+    margin-bottom: 30rpx;
 }
 
 .lend-btn{

@@ -3,15 +3,15 @@
   <button class="scan-button" bindtap="onScanBtnClick"> 扫码上传 </button>
   <view class="body">
         <view class="widgets">
-            <block wx:for-items="{{list}}"  wx:key="{{item.id}}">
-                <view class="info-header list-item">
-                    <image class="info-header-image" src="{{item.image}}"></image>
+            <block wx:for-items="{{list}}" wx:key="{{item.book.isbn10}}">
+                <navigator class="info-header list-item" url="../detail/detail?isLend=0&isbn={{item.book.isbn10}}">
+                    <image class="info-header-image" src="{{item.book.image}}"></image>
                     <view class="info-header-texts">
-                      <text class="title-text">{{item.title}} {{item.rating.average}}分</text>
-                      <text class="author-text">{{item.author}}</text>
-                      <text class="rating-text"></text>
+                      <text class="title-text">{{item.book.title}} {{item.book.rating.average}}分</text>
+                      <text class="author-text">{{item.book.author[0]}}</text>
+                      <text class="rating-text">{{item.owner.nickName}} @望京SOHO</text>
                     </view>
-                </view>
+                </navigator>
             </block>
         </view>
     </view>
