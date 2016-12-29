@@ -8,31 +8,27 @@ AV.init({
 
 App({
   onLaunch: function () {
-    //调用API从本地缓存中获取数据
-    // var logs = wx.getStorageSync('logs') || []
-    // logs.unshift(Date.now())
-    // wx.setStorageSync('logs', logs)
-
-    this.getUserInfo()
-    this.getLocation()
+    this.getUser()
   },
 
-  getUserInfo:function(cb){
+  getUser:function(cb){
     var that = this
-    if(this.globalData.userInfo){
-      typeof cb == "function" && cb(this.globalData.userInfo)
+    if(this.globalData.user){
+      typeof cb == "function" && cb(this.globalData.user)
     }else{
       //调用登录接口
-      wx.login({
-        success: function () {
-          wx.getUserInfo({
+      AV.User.loginWithWeapp().then(user => {
+        wx.getUserInfo({
             success: function (res) {
-              that.globalData.userInfo = res.userInfo
-              typeof cb == "function" && cb(that.globalData.userInfo)
+              // 更新当前用户的信息
+              user.set(res.userInfo).save().then(user => {
+                // 成功，此时可在控制台中看到更新后的用户信息
+                that.globalData.user = user.toJSON()
+                typeof cb == "function" && cb(that.globalData.user)
+              }).catch(console.error);
             }
           })
-        }
-      })
+      }).catch(console.error);
     }
   },
 
@@ -52,7 +48,7 @@ App({
   },
   
   globalData:{
-    userInfo:null,
+    user: null,
     lbs: null,
   }
 })

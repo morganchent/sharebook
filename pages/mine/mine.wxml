@@ -1,13 +1,15 @@
 <!--mine.wxml-->
 <view class="container">
   <view  bindtap="onImageClick" class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    <image class="userinfo-avatar" src="{{user.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{user.nickName}}</text>
   </view>
   <view class="divider-line"></view>
   <view class="setting-item">藏书</view>
   <view class="divider-line"></view>
   <view class="setting-item">已借</view>
+  <view class="divider-line"></view>
+  <view class="setting-item">消息</view>
   <view class="section-line"></view>
   <view class="setting-item">关于</view>
   <view class="divider-line"></view>

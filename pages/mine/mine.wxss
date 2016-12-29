@@ -35,9 +35,9 @@
 .section-line{
   margin-top: 30rpx;
   margin-bottom: 30rpx;
-  height: 10rpx;
+  height: 20rpx;
   display: block;
-  background: #CCCCCC;
+  background: #F7F7FA;
 }
 
 setting-item{

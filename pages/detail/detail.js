@@ -89,8 +89,12 @@ Page({
   },
 
   onLendClick: function(){
-    this.saveBookInfo()
+    // this.saveBookInfo()
     this.saveStatus()
+  },
+  
+  onBorrowClick: function(){
+    this.sendMessage()
   },
 
   saveBookInfo: function(){
@@ -109,12 +113,24 @@ Page({
     var point = new AV.GeoPoint(app.globalData.lbs.latitude, app.globalData.lbs.longitude)
     feed.set('whereCreated', point)
     feed.set('book', this.data)
-    feed.set('owner', app.globalData.userInfo)
+    feed.set('owner', app.globalData.user)
     
     feed.save().then(function (feed) {
       console.log('objectId is ' + feed.id)
     }, function (error) {
       console.error(error)
     })
+  },
+
+  sendMessage: function(){
+    var status = new AV.Status(null, 'hi，你的书能借我看看吗？');
+    AV.Status.sendPrivateStatus(status, '58647b0b128fe1006bcacebc').
+      then(function(status){
+        //发送成功
+        console.dir(status);
+      }, function(err){
+        //发布失败
+        console.dir(err);
+    });
   }
 })
