@@ -2,6 +2,8 @@
 
 var BOOK_INFO_API = 'https://api.douban.com/v2/book/isbn/'
 
+var ADDRESS_API = 'https://api.map.baidu.com/geocoder/v2/?output=json&pois=1&ak=FD410cd97f06a78b71f4da8d2203c5c7&page_size=20&location='
+
 const AV = require('../../libs/av-weapp.js')
 var app = getApp()
 
@@ -36,9 +38,17 @@ Page({
     //   min: 0
     // },
   },
+
   onLoad: function (options) {
-    this.data.isLend = options.isLend
+    this.setData({
+      isLend: options.isLend
+    })
     this.queryBookInfo(options.isbn)
+    var that = this
+    app.getLocation(function(lbs){
+      console.log(lbs)
+      that.queryAddress(lbs)
+    })
   },
 
   onShareAppMessage: function () {
@@ -55,22 +65,18 @@ Page({
     wx.request({
       url: BOOK_INFO_API + isbn,
       success: function(res){
-        var isLend = that.data.isLend
-        res.data.isLend = isLend
         that.setData(res.data)
-        console.log('1111')
-        console.log(that.data.isLend)
       },
       fail: function() {
-        // wx.showModal({
-        //   content: '没有相关信息，请重试',
-        //   showCancel: false,
-        //   success: function(res) {
-        //     if (res.confirm) {
-        //       wx.navigateBack()
-        //     }
-        //   }
-        // })
+        wx.showModal({
+          content: '没有相关信息，请重试',
+          showCancel: false,
+          success: function(res) {
+            if (res.confirm) {
+              wx.navigateBack()
+            }
+          }
+        })
       },
       complete: function() {
         wx.hideNavigationBarLoading()
@@ -78,15 +84,42 @@ Page({
     })
   },
 
-  onLocationClick: function(){
+  queryAddress: function(lbs){
     var that = this
-    wx.chooseLocation({
-      success: function(res) {
-        app.globalData.lbs = res
-        console.log(app.globalData.lbs)
+    wx.request({
+      url: ADDRESS_API + lbs.latitude + ',' + lbs.longitude,
+      success: function(res){
+        that.setData({
+          lbsData: res.data.result
+        })
+        console.log(that.data)
+      },
+      fail: function() {
+      },
+      complete: function() {
+        
       }
     })
   },
+
+  bindPickerChange: function(e) {
+    var index = e.detail.value
+    var address = this.data.lbsData.pois[index].name
+    this.setData({
+      index: index,
+      address: address
+    })
+  },
+
+  // onLocationClick: function(){
+  //   var that = this
+  //   wx.chooseLocation({
+  //     success: function(res) {
+  //       app.globalData.lbs = res
+  //       console.log(app.globalData.lbs)
+  //     }
+  //   })
+  // },
 
   onLendClick: function(){
     // this.saveBookInfo()
@@ -114,7 +147,8 @@ Page({
     feed.set('whereCreated', point)
     feed.set('book', this.data)
     feed.set('owner', app.globalData.user)
-    
+    feed.set('address', this.data.address)
+    console.log("address:", this.data.address)
     feed.save().then(function (feed) {
       console.log('objectId is ' + feed.id)
     }, function (error) {

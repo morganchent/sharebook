@@ -9,7 +9,7 @@
                     <view class="info-header-texts">
                       <text class="title-text">{{item.book.title}} {{item.book.rating.average}}分</text>
                       <text class="author-text">{{item.book.author[0]}}</text>
-                      <text class="rating-text">{{item.owner.nickName}} @望京SOHO</text>
+                      <text class="rating-text">{{item.owner.nickName}} @{{item.address}}</text>
                     </view>
                 </navigator>
             </block>

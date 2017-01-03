@@ -25,3 +25,8 @@
 .lend-btn{
     margin-top: 100rpx;
 }
+
+.lbs-picker{
+    margin-top: 20rpx;
+    font-size: 28rpx;
+}
