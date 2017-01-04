@@ -5,7 +5,7 @@
 
       <view class="info-header-texts">
         <text class="title-text">{{title}}</text>
-        <text class="author-text">{{author}}</text>
+        <text class="author-text">{{author[0]}}</text>
         <text class="price-text">{{price}}</text>
         <text class="rating-text">{{rating.average}}分</text>
       </view>
@@ -16,9 +16,9 @@
 
   <block wx:if="{{isLend == 1}}">
     <view class="divider-line"></view>
-    <picker class="lbs-picker" bindchange="bindPickerChange" value="{{index}}" range="{{lbsData.pois}}" range-key="name">
+    <picker class="lbs-picker" bindchange="bindPickerChange" value="{{index}}" range="{{lbsData}}" range-key="title">
       <view class="picker">
-        所在位置：{{lbsData.pois[index].name}}
+        所在位置：{{lbsData[index].title}}
       </view>
     </picker>
     <view class="divider-line"></view>

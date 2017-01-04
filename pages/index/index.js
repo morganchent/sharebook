@@ -114,7 +114,6 @@ Page({
   },
 
   onLoad: function () {
-    console.log('onLoad')
     this.getList()
   },
 
@@ -144,7 +143,6 @@ Page({
   getList: function(){
     var that = this
     app.getLocation(function(lbs){
-      console.log(lbs)
       that.queryBookList(lbs)
     })
   },

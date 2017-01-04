@@ -2,7 +2,7 @@
 
 var BOOK_INFO_API = 'https://api.douban.com/v2/book/isbn/'
 
-var ADDRESS_API = 'https://api.map.baidu.com/geocoder/v2/?output=json&pois=1&ak=FD410cd97f06a78b71f4da8d2203c5c7&page_size=20&location='
+var ADDRESS_API = 'https://apis.map.qq.com/ws/geocoder/v1/?key=VQTBZ-5XWKV-ANIP2-UJELU-SEFKH-Y2F6U&get_poi=1&coord_type=1&poi_options=address_format=short;radius=2000;page_size=50;page_index=1;category=大学,中学,商务楼宇&location='
 
 const AV = require('../../libs/av-weapp.js')
 var app = getApp()
@@ -46,7 +46,6 @@ Page({
     this.queryBookInfo(options.isbn)
     var that = this
     app.getLocation(function(lbs){
-      console.log(lbs)
       that.queryAddress(lbs)
     })
   },
@@ -90,9 +89,8 @@ Page({
       url: ADDRESS_API + lbs.latitude + ',' + lbs.longitude,
       success: function(res){
         that.setData({
-          lbsData: res.data.result
+          lbsData: res.data.result.pois
         })
-        console.log(that.data)
       },
       fail: function() {
       },
@@ -104,7 +102,7 @@ Page({
 
   bindPickerChange: function(e) {
     var index = e.detail.value
-    var address = this.data.lbsData.pois[index].name
+    var address = this.data.lbsData[index].title
     this.setData({
       index: index,
       address: address
@@ -151,6 +149,12 @@ Page({
     console.log("address:", this.data.address)
     feed.save().then(function (feed) {
       console.log('objectId is ' + feed.id)
+      wx.showToast({
+        title: '成功添加藏书',
+        icon: 'success',
+        duration: 2000
+      })
+      wx.navigateBack()
     }, function (error) {
       console.error(error)
     })

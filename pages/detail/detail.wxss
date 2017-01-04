@@ -28,5 +28,6 @@
 
 .lbs-picker{
     margin-top: 20rpx;
-    font-size: 28rpx;
+    margin-bottom: 20rpx;
+    font-size: 32rpx;
 }
