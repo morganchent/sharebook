@@ -53,8 +53,8 @@ Page({
   onShareAppMessage: function () {
     return {
       title: '飞鸽',
-      desc: '我用“飞鸽”APP借了一本《'+this.data.title+'》',
-      path: '/pages/detail/detail?isbn='+this.data.isbn10
+      desc: '我用“飞鸽”APP借了一本《'+this.data.bookData.title+'》',
+      path: '/pages/detail/detail?isbn='+this.data.bookData.isbn10
     }
   },
 
@@ -64,7 +64,9 @@ Page({
     wx.request({
       url: BOOK_INFO_API + isbn,
       success: function(res){
-        that.setData(res.data)
+        that.setData({
+          bookData: res.data
+        })
       },
       fail: function() {
         wx.showModal({
@@ -88,9 +90,17 @@ Page({
     wx.request({
       url: ADDRESS_API + lbs.latitude + ',' + lbs.longitude,
       success: function(res){
-        that.setData({
-          lbsData: res.data.result.pois
-        })
+        var pois = res.data.result.pois
+        if(pois.length >0){
+          //默认选择第0个poi
+          var index = 0
+          var address = pois[index].title
+          that.setData({
+            lbsData: pois,
+            index: index,
+            address: address
+          })
+        }
       },
       fail: function() {
       },
@@ -130,7 +140,7 @@ Page({
 
   saveBookInfo: function(){
     var Book = AV.Object.extend('Book')
-    var book = new Book(this.data)
+    var book = new Book(this.data.bookData)
     book.save().then(function (book) {
       console.log('objectId is ' + book.id)
     }, function (error) {
@@ -143,10 +153,9 @@ Page({
     var feed = new Feed()
     var point = new AV.GeoPoint(app.globalData.lbs.latitude, app.globalData.lbs.longitude)
     feed.set('whereCreated', point)
-    feed.set('book', this.data)
+    feed.set('book', this.data.bookData)
     feed.set('owner', app.globalData.user)
     feed.set('address', this.data.address)
-    console.log("address:", this.data.address)
     feed.save().then(function (feed) {
       console.log('objectId is ' + feed.id)
       wx.showToast({
