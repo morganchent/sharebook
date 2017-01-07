@@ -1,6 +1,7 @@
 //index.js
 
-const AV = require('../../libs/av-weapp.js')
+const AV = require('../../libs/av-weapp-min.js')
+
 var app = getApp()
 Page({
   data: {
@@ -153,9 +154,11 @@ Page({
     var point = new AV.GeoPoint(lbs.latitude, lbs.longitude);
     query.withinKilometers('whereCreated', point, 2.0);
     query.find().then(function (results) {
-      that.setData({
-        list: results
-      })
+      if(results.length > 0){
+        that.setData({
+          list: results
+        })
+      }
     }, function (error) {
     });
   }

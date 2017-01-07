@@ -1,9 +1,15 @@
 //app.js
-const AV = require('./libs/av-weapp.js');
+const AV = require('./libs/av-weapp-min.js');
+const Realtime = require('./libs/realtime.weapp.min.js').Realtime;
 
 AV.init({ 
  appId: '03v0ujkW5x90FOCtkG0FjQih-gzGzoHsz', 
  appKey: 'eTKvmY6PiSYfNlVEhnDvvcwf', 
+});
+
+const realtime = new Realtime({
+ appId: '03v0ujkW5x90FOCtkG0FjQih-gzGzoHsz',
+ noBinary: true,
 });
 
 App({

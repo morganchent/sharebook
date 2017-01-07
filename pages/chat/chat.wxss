@@ -1,0 +1,33 @@
+/**chat.wxss**/
+.container {
+  height: 100%;
+  display: block;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20rpx 20rpx;
+  box-sizing: border-box;
+}
+
+.summary-text{
+    display: block;
+    font-size: 28rpx;
+    color: #999999;
+    margin-bottom: 50rpx;
+}
+
+.location-text{
+    display: block;
+    font-size: 28rpx;
+    margin-top: 30rpx;
+    margin-bottom: 30rpx;
+}
+
+.lend-btn{
+    margin-top: 100rpx;
+}
+
+.lbs-picker{
+    margin-top: 20rpx;
+    margin-bottom: 20rpx;
+    font-size: 32rpx;
+}

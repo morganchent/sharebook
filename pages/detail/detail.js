@@ -4,7 +4,7 @@ var BOOK_INFO_API = 'https://api.douban.com/v2/book/isbn/'
 
 var ADDRESS_API = 'https://apis.map.qq.com/ws/geocoder/v1/?key=VQTBZ-5XWKV-ANIP2-UJELU-SEFKH-Y2F6U&get_poi=1&coord_type=1&poi_options=address_format=short;radius=2000;page_size=50;page_index=1;category=大学,中学,商务楼宇&location='
 
-const AV = require('../../libs/av-weapp.js')
+const AV = require('../../libs/av-weapp-min.js')
 var app = getApp()
 
 Page({
@@ -135,7 +135,10 @@ Page({
   },
   
   onBorrowClick: function(){
-    this.sendMessage()
+    // this.sendMessage()
+    wx.navigateTo({
+      url: '../chat/chat'
+    })
   },
 
   saveBookInfo: function(){
@@ -167,17 +170,5 @@ Page({
     }, function (error) {
       console.error(error)
     })
-  },
-
-  sendMessage: function(){
-    var status = new AV.Status(null, 'hi，你的书能借我看看吗？');
-    AV.Status.sendPrivateStatus(status, '58647b0b128fe1006bcacebc').
-      then(function(status){
-        //发送成功
-        console.dir(status);
-      }, function(err){
-        //发布失败
-        console.dir(err);
-    });
   }
 })
