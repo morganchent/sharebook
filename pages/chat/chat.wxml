@@ -1,4 +1,15 @@
 <!--chat.wxml-->
 <view class="container">
+    <view class="body">
+        <view class="widgets">
+            <block wx:for-items="{{list}}" wx:key="{{item.book.isbn10}}">
+                <image class="info-header-image" src="{{item.book.image}}"></image>
+                    <view class="info-header-texts">
+                      <text class="title-text">{{item.book.title}} {{item.book.rating.average}}分</text>
+                      <text class="author-text">{{item.book.author[0]}}</text>
+                    </view>
+            </block>
+        </view>
+    </view>
 text
 </view>

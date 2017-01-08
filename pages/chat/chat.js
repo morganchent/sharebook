@@ -1,43 +1,58 @@
 //chat.js
 const AV = require('../../libs/av-weapp-min.js');
-const Realtime = require('../../libs/realtime.weapp.min.js').Realtime;
+var TextMessage = require('../../libs/realtime.weapp.min.js').TextMessage;
+var app = getApp()
 
-const realtime = new Realtime({
- appId: '03v0ujkW5x90FOCtkG0FjQih-gzGzoHsz',
- noBinary: true,
-});
+var conversation;
 
 Page({
   data: {
   },
 
   onLoad: function (options) {
-    this.sendMessage()
+    this.createConversation()
+  },
+
+  createConversation: function(){
+    var that = this
+    app.getIMClient(function(IMClient){
+      IMClient.createConversation({
+          members: ['Jerry'],
+          name: 'Tom & Jerry',
+          unique: true,
+        }).then(function(conversation) {
+          that.conversation = conversation;
+      })
+    })
+  },
+
+  getMessage: function(){
+    // 创建一个迭代器，每次获取 10 条历史消息
+    var messageIterator = conversation.createMessagesIterator({ limit: 10 });
+    // 第一次调用 next 方法，获得前 10 条消息，还有更多消息，done 为 false
+    messageIterator.next().then(function(result) {
+      // result: {
+      //   value: [message1, ..., message10],
+      //   done: false,
+      // }
+    }).catch(console.error.bind(console));
+    // 第二次调用 next 方法，获得第 11 ~ 20 条消息，还有更多消息，done 为 false
+    messageIterator.next().then(function(result) {
+      // result: {
+      //   value: [message11, ..., message20],
+      //   done: false,
+      // }
+    }).catch(console.error.bind(console));
+    // 第二次调用 next 方法，获得第 21 条消息，没有更多消息，done 为 true
+    messageIterator.next().then(function(result) {
+      // No more messages
+      // result: { value: [message21], done: true }
+    }).catch(console.error.bind(console));
   },
 
   sendMessage: function(){
-    // Tom 用自己的名字作为 clientId，获取 IMClient 对象实例
-    realtime.createIMClient('Tom').then(function(tom) {
-      // 创建与Jerry之间的对话
-      return tom.createConversation({
-        members: ['Jerry'],
-        name: 'Tom & Jerry',
-      });
-    }).then(function(conversation) {
-      // 发送消息
-      return conversation.send(new AV.TextMessage('耗子，起床！'));
-    }).then(function(message) {
-      console.log('Tom & Jerry', '发送成功！');
-    }).catch(console.error);
-
-    // var status = new AV.Status(null, 'hi，你的书能借我看看吗？');
-    // AV.Status.sendPrivateStatus(status, '58647b0b128fe1006bcacebc').
-    //   then(function(status){
-    //     //发送成功
-    //     console.dir(status);
-    //   }, function(err){
-    //     //发布失败
-    //     console.dir(err);
-    // });
+    this.conversation.send(new TextMessage('耗子，起床！')).then(function(message) {
+        console.log('Tom & Jerry', '发送成功！');
+      }).catch(console.error);
   }
 })

@@ -28,6 +28,10 @@ App({
             success: function (res) {
               // 更新当前用户的信息
               user.set(res.userInfo).save().then(user => {
+                //创建IMClient
+                realtime.createIMClient(user.objectId).then(function(IMClient){
+                that.globalData.IMClient = IMClient
+              })
                 // 成功，此时可在控制台中看到更新后的用户信息
                 that.globalData.user = user.toJSON()
                 typeof cb == "function" && cb(that.globalData.user)
@@ -52,9 +56,24 @@ App({
       })
     }
   },
+
+  getIMClient: function(IMClient){
+    var that = this
+    if(this.globalData.IMClient){
+      typeof IMClient == "function" && IMClient(this.globalData.IMClient)
+    }else{
+      this.getUser(function(user){
+        realtime.createIMClient(user.objectId).then(function(IMClient){
+          that.globalData.IMClient = IMClient
+          typeof IMClient == "function" && IMClient(that.globalData.IMClient)
+        })
+      })
+    }
+  },
   
   globalData:{
     user: null,
     lbs: null,
+    IMClient: null,
   }
 })

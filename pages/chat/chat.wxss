@@ -8,26 +8,18 @@
   box-sizing: border-box;
 }
 
-.summary-text{
-    display: block;
-    font-size: 28rpx;
-    color: #999999;
-    margin-bottom: 50rpx;
+.body{
+    overflow: hidden;
 }
 
-.location-text{
-    display: block;
-    font-size: 28rpx;
-    margin-top: 30rpx;
-    margin-bottom: 30rpx;
+.widget{
+    position: relative;
+    padding-top: 26rpx;
+    padding-bottom: 26rpx;
+    padding-left: 40rpx;
+    padding-right: 40rpx;
 }
 
-.lend-btn{
-    margin-top: 100rpx;
-}
-
-.lbs-picker{
-    margin-top: 20rpx;
-    margin-bottom: 20rpx;
-    font-size: 32rpx;
+.list-item{
+    margin-bottom: 40rpx;
 }
