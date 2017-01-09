@@ -1,15 +1,13 @@
 <!--chat.wxml-->
 <view class="container">
-    <view class="body">
-        <view class="widgets">
-            <block wx:for-items="{{list}}" wx:key="{{item.book.isbn10}}">
-                <image class="info-header-image" src="{{item.book.image}}"></image>
-                    <view class="info-header-texts">
-                      <text class="title-text">{{item.book.title}} {{item.book.rating.average}}分</text>
-                      <text class="author-text">{{item.book.author[0]}}</text>
-                    </view>
-            </block>
-        </view>
+    <view class="msg-list">
+        <block wx:for-items="{{list}}" wx:key="{{item.id}}">
+            <view class="list-item">
+                <text class="from-text">{{item.from}}</text>
+                <text class="content-text">{{item.content}}</text>
+            </view>
+        </block>
     </view>
-text
+    <input bindinput="bindKeyInput" placeholder="" auto-focus/>
+    <button class="scan-button" bindtap="onSendBtnClick"> 发送 </button>
 </view>

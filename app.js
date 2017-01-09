@@ -29,7 +29,7 @@ App({
               // 更新当前用户的信息
               user.set(res.userInfo).save().then(user => {
                 //创建IMClient
-                realtime.createIMClient(user.objectId).then(function(IMClient){
+                realtime.createIMClient(user.toJSON().nickName).then(function(IMClient){
                 that.globalData.IMClient = IMClient
               })
                 // 成功，此时可在控制台中看到更新后的用户信息
@@ -63,7 +63,7 @@ App({
       typeof IMClient == "function" && IMClient(this.globalData.IMClient)
     }else{
       this.getUser(function(user){
-        realtime.createIMClient(user.objectId).then(function(IMClient){
+        realtime.createIMClient(user.toJSON().nickName).then(function(IMClient){
           that.globalData.IMClient = IMClient
           typeof IMClient == "function" && IMClient(that.globalData.IMClient)
         })
