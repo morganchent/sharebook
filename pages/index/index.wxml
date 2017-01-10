@@ -1,10 +1,9 @@
 <!--index.wxml-->
 <view class="container">
-  <button class="scan-button" bindtap="onScanBtnClick"> 扫码上传 </button>
   <view class="body">
         <view class="widgets">
             <block wx:for-items="{{list}}" wx:key="{{item.book.isbn10}}">
-                <navigator class="info-header list-item" url="../detail/detail?isLend=0&isbn={{item.book.isbn10}}">
+                <navigator class="info-header list-item" url="../detail/detail?isLend=0&isbn={{item.book.isbn10}}&owner={{item.owner.nickName}}">
                     <image class="info-header-image" src="{{item.book.image}}"></image>
                     <view class="info-header-texts">
                       <text class="title-text">{{item.book.title}} {{item.book.rating.average}}分</text>

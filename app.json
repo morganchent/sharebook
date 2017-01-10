@@ -1,6 +1,7 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/library/library",
     "pages/mine/mine",
     "pages/detail/detail",
     "pages/chat/chat",
@@ -18,6 +19,11 @@
       "text": "首页",
       "iconPath": "image/home-normal.png",
       "selectedIconPath": "image/home.png"
+    },{
+      "pagePath": "pages/library/library",
+      "text": "藏书",
+      "iconPath": "image/book-normal.png",
+      "selectedIconPath": "image/book.png"
     },{
       "pagePath": "pages/mine/mine",
       "text": "我的",

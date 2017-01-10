@@ -1,13 +1,15 @@
 <!--chat.wxml-->
-<view class="container">
-    <view class="msg-list">
+<view class="container-chat">
+    <scroll-view scroll-y="true" class="msg-list">
         <block wx:for-items="{{list}}" wx:key="{{item.id}}">
             <view class="list-item">
-                <text class="from-text">{{item.from}}</text>
+                <image class="userinfo-avatar" src="{{item.avatarUrl}}" background-size="cover"></image>
                 <text class="content-text">{{item.content}}</text>
             </view>
         </block>
+    </scroll-view>
+    <view class="send-item">
+        <input class="edit-text" bindinput="bindKeyInput" placeholder="" auto-focus/>
+        <button class="send-button" bindtap="onSendBtnClick" disabled="{{textIsEmpty}}"> 发送 </button>
     </view>
-    <input bindinput="bindKeyInput" placeholder="" auto-focus/>
-    <button class="scan-button" bindtap="onSendBtnClick"> 发送 </button>
 </view>

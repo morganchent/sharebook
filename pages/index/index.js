@@ -130,16 +130,6 @@ Page({
       path: '/pages/index/index'
     }
   },
-  
-  onScanBtnClick: function() {
-    wx.scanCode({
-      success: (res) => {
-        wx.navigateTo({
-          url: '../detail/detail?isLend=1&isbn=' + res.result
-        })
-      }
-    })
-  },
 
   getList: function(){
     var that = this

@@ -1,23 +1,17 @@
 /**chat.wxss**/
-.container {
-  height: 100%;
-  display: block;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 20rpx 20rpx;
-  box-sizing: border-box;
-}
-
-.body{
+.container-chat {
+    display: block;
+    flex-direction: column;
+    padding: 0rpx 0rpx;
     overflow: hidden;
 }
 
 .msg-list{
+    height: 1000rpx;
     position: relative;
-    padding-top: 26rpx;
-    padding-bottom: 26rpx;
-    padding-left: 40rpx;
-    padding-right: 40rpx;
+    padding: 20rpx;
+    background: #F7F7FA;
+    justify-content: space-between;
 }
 
 .list-item{
@@ -26,12 +20,33 @@
     flex-direction: row;
 }
 
-.from-text{
-    margin-left: 20rpx;
-    font-size: 24rpx;
+.userinfo-avatar {
+    width: 96rpx;
+    height: 96rpx;
+    border-radius: 50%;
 }
 
 .content-text{
     margin-left: 20rpx;
-    font-size: 24rpx;
+    font-size: 32rpx;
+    padding: 10rpx;
+    background: #ffffff
+}
+
+.send-item{
+    height: 80rpx;
+    display: flex;
+    flex-direction: row;
+    margin: 20rpx;
+}
+
+.edit-text{
+    width: 78%;
+    height: 100%;
+    padding: 4rpx;
+    background: #F7F7FA;
+}
+
+.send-button {
+    margin-left: 20rpx;
 }

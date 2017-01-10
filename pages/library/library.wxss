@@ -26,7 +26,16 @@
 }
 
 .list-item {
+  display: flex;
+  flex-direction: row;
   margin-bottom: 40rpx;
+  justify-content: center;
+}
+
+.book-item {
+  display: block;
+  flex-direction: column;
+  margin-left: 60rpx;
 }
 
 .info-header-image {
@@ -36,7 +45,7 @@
 
 .title-text {
   display: block;
-  font-size: 36rpx;
+  font-size: 24rpx;
   margin-top: 6rpx;
 }
 

@@ -8,19 +8,29 @@ var conversation;
 Page({
   data: {
     list: [],
-    hasMoreMsg: false
+    hasMoreMsg: false,
+    avatarUrl: '',
+    textIsEmpty: true
   },
 
   onLoad: function (options) {
-    this.createConversation()
+    console.log('options', options)
+    var that = this
+    app.getUser(function (user) {
+      that.setData({
+        userName: user.nickName,
+        avatarUrl: user.avatarUrl
+      })
+      that.createConversation(options.toId)
+    })
   },
 
-  createConversation: function(){
+  createConversation: function(toId){
     var that = this
     app.getIMClient(function(IMClient){
       IMClient.createConversation({
-          members: ['Jerry'],
-          name: 'Tom & Jerry',
+          members: [toId],
+          name: that.data.userName + '&' + toId,
           unique: true,
         }).then(function(conversation) {
           that.conversation = conversation
@@ -56,30 +66,19 @@ Page({
   },
 
   parseMessage: function(messages){
-    var messageList = this.data.list
-    var msg = {
-      id: '',
-      from: '',
-      content: '',
-      time: ''
-    }
     for(var i=0;i<messages.length;i++)
     {
-      msg.id = messages[i].id
-      msg.from = messages[i].from
-      msg.content = messages[i]._lctext
-      msg.time = messages[i].timestamp.toJSON()
-      messageList.push(msg)
+      this.translateMsg(messages[i])
     }
     this.setData({
-      list: messageList
+      list: this.data.list
     })
-    console.log(this.data.list[0])
   },
   
   bindKeyInput: function(e) {
     this.setData({
-      inputValue: e.detail.value
+      inputValue: e.detail.value,
+      textIsEmpty: (e.detail.value == '')
     })
   },
 
@@ -89,8 +88,40 @@ Page({
   
 
   sendMessage: function(){
-    this.conversation.send(new TextMessage(this.data.inputValue)).then(function(message) {
-        console.log('发送成功！', message);
-      }).catch(console.error);
+    if(this.data.inputValue && this.data.inputValue != ''){
+      var that = this
+      var msg = new TextMessage(this.data.inputValue)
+      msg._lcattrs = {avatarUrl: this.data.avatarUrl}
+      this.conversation.send(msg).then(function(message) {
+          console.log('发送成功！', message);
+          that.translateMsg(message)
+          that.setData({
+            list: that.data.list
+          })
+        }).catch(console.error);
+    }else{
+      wx.showToast({
+        title: '输入不能为空',
+        duration: 1000
+      })
+    }
+  },
+
+  translateMsg: function(message){
+    var msg = {
+        id: '',
+        from: '',
+        content: '',
+        time: '',
+        avatarUrl: ''
+      }
+      msg.id = message.id
+      msg.from = message.from
+      msg.content = message._lctext
+      msg.time = message.timestamp.toJSON()
+      if(message._lcattrs){
+        msg.avatarUrl = message._lcattrs.avatarUrl
+      }
+      this.data.list.push(msg)
   }
 })
