@@ -1,5 +1,5 @@
 
-<!--index.wxml-->
+<!--library.wxml-->
 <view class="container">
   <button class="scan-button" bindtap="onScanBtnClick"> 扫码上传 </button>
   <view class="body">

@@ -2,6 +2,7 @@
   "pages":[
     "pages/index/index",
     "pages/library/library",
+    "pages/msglist/msglist",
     "pages/mine/mine",
     "pages/detail/detail",
     "pages/chat/chat",
@@ -24,6 +25,11 @@
       "text": "藏书",
       "iconPath": "image/book-normal.png",
       "selectedIconPath": "image/book.png"
+    },{
+      "pagePath": "pages/msglist/msglist",
+      "text": "消息",
+      "iconPath": "image/message-normal.png",
+      "selectedIconPath": "image/message.png"
     },{
       "pagePath": "pages/mine/mine",
       "text": "我的",

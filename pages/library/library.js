@@ -1,4 +1,4 @@
-//index.js
+//library.js
 
 const AV = require('../../libs/av-weapp-min.js')
 

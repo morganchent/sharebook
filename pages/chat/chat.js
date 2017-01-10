@@ -14,7 +14,6 @@ Page({
   },
 
   onLoad: function (options) {
-    console.log('options', options)
     var that = this
     app.getUser(function (user) {
       that.setData({
@@ -90,14 +89,17 @@ Page({
   sendMessage: function(){
     if(this.data.inputValue && this.data.inputValue != ''){
       var that = this
-      var msg = new TextMessage(this.data.inputValue)
-      msg._lcattrs = {avatarUrl: this.data.avatarUrl}
-      this.conversation.send(msg).then(function(message) {
-          console.log('发送成功！', message);
+      // var msg = new TextMessage(this.data.inputValue)
+      
+      // console.log(msg)
+      // msg._lcattrs = {avatarUrl: this.data.avatarUrl}
+      this.conversation.send(new TextMessage(this.data.inputValue)).then(function(message) {
+        console.log(message)
           that.translateMsg(message)
           that.setData({
             list: that.data.list
           })
+          console.log(that.conversation)
         }).catch(console.error);
     }else{
       wx.showToast({
