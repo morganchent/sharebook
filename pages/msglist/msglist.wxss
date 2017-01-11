@@ -5,6 +5,42 @@
   display: block;
   flex-direction: column;
   justify-content: space-between;
-  padding: 20rpx 20rpx;
+  padding: 0rpx 0rpx;
   box-sizing: border-box;
+}
+
+.list-item {
+  display: block;
+  flex-direction: column;
+}
+
+.item-layout {
+  display: flex;
+  flex-direction: row;
+  padding: 20rpx;
+}
+
+.userinfo-avatar {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 50%;
+}
+
+.item-texts {
+  display: block;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 20rpx;
+}
+
+.text-name{
+  display: block;
+  font-size: 36rpx;
+}
+
+.text-msg{
+  display: block;
+  font-size: 28rpx;
+  margin-top: 30rpx;
+  color: #7B7B7D;
 }

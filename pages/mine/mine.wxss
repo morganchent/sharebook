@@ -40,7 +40,7 @@
   background: #F7F7FA;
 }
 
-setting-item{
+.setting-item{
   display: block;
   font-size: 36rpx;
   padding-left: 20rpx;

@@ -5,12 +5,7 @@
   display: block;
   flex-direction: column;
   justify-content: space-between;
-  padding: 20rpx 20rpx;
   box-sizing: border-box;
-}
-
-.scan-button {
-  margin-bottom: 20rpx;
 }
 
 .body {
@@ -26,7 +21,14 @@
 }
 
 .list-item {
-  margin-bottom: 40rpx;
+  display: block;
+  flex-direction: column;
+}
+
+.item-layout {
+  display: flex;
+  flex-direction: row;
+  padding: 20rpx;
 }
 
 .info-header-image {

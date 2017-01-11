@@ -1,17 +1,21 @@
+
 <!--index.wxml-->
 <view class="container">
   <view class="body">
-        <view class="widgets">
-            <block wx:for-items="{{list}}" wx:key="{{item.book.isbn10}}">
-                <navigator class="info-header list-item" url="../detail/detail?isLend=0&isbn={{item.book.isbn10}}&owner={{item.owner.nickName}}">
-                    <image class="info-header-image" src="{{item.book.image}}"></image>
-                    <view class="info-header-texts">
-                      <text class="title-text">{{item.book.title}} {{item.book.rating.average}}分</text>
-                      <text class="author-text">{{item.book.author[0]}}</text>
-                      <text class="rating-text">{{item.owner.nickName}} @{{item.address}}</text>
-                    </view>
-                </navigator>
-            </block>
-        </view>
+    <view class="widgets">
+      <block wx:for-items="{{list}}" wx:key="{{item.book.isbn10}}">
+        <navigator class="list-item" url="../detail/detail?isLend=0&isbn={{item.book.isbn10}}&ownerId={{item.owner.objectId}}&ownerName={{item.owner.nickName}}&ownerImage={{item.owner.avatarUrl}}">
+          <view class="item-layout">
+            <image class="info-header-image" src="{{item.book.image}}"></image>
+            <view class="info-header-texts">
+              <text class="title-text">{{item.book.title}} {{item.book.rating.average}}分</text>
+              <text class="author-text">{{item.book.author[0]}}</text>
+              <text class="lbs-text">{{item.owner.nickName}} @{{item.address}}</text>
+            </view>
+          </view>
+          <view class="divider-line"></view>
+        </navigator>
+      </block>
     </view>
+  </view>
 </view>

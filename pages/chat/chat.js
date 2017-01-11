@@ -20,17 +20,19 @@ Page({
         userName: user.nickName,
         avatarUrl: user.avatarUrl
       })
-      that.createConversation(options.toId)
+      that.createConversation(options.toId, options.toName, options.toImage)
     })
   },
 
-  createConversation: function(toId){
+  createConversation: function(toId, toName, toImage){
     var that = this
     app.getIMClient(function(IMClient){
       IMClient.createConversation({
-          members: [toId],
-          name: that.data.userName + '&' + toId,
-          unique: true,
+          members: [toName],
+          name: toName,
+          image: toImage,
+          uniqueId: toId,
+          unique: true
         }).then(function(conversation) {
           that.conversation = conversation
           that.getMessage()

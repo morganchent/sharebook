@@ -4,9 +4,15 @@
   <view class="body">
     <view class="widgets">
       <block wx:for-items="{{list}}" wx:key="{{item.id}}">
-        <navigator class="book-item" url="../detail/detail?isLend=0&isbn={{item.book.isbn10}}&owner={{item.owner.nickName}}">
-          <image class="info-header-image" src="{{item.book.image}}"></image>
-          <text class="title-text">{{item.book.title}}</text>
+        <navigator class="list-item" url="../chat/chat?toId={{item.toId}}&toName={{item.toName}}&toImage={{item.toImage}}">
+        <view class="item-layout">
+          <image class="userinfo-avatar" src="{{item.toImage}}"></image>
+          <view class="item-texts">
+            <text class="text-name">{{item.toName}}</text>
+            <text class="text-msg">{{item.msgFrom}} {{item.msgContent}}</text>
+          </view>
+        </view>
+          <view class="divider-line"></view>
         </navigator>
       </block>
     </view>

@@ -15,7 +15,9 @@ Page({
     var that = this
     this.setData({
       isLend: options.isLend,
-      owner: options.owner
+      ownerId: options.ownerId,
+      ownerName: options.ownerName,
+      ownerImage: options.ownerImage
     })
     this.queryBookInfo(options.isbn)
     if(options.isLend == 1){
@@ -110,9 +112,8 @@ Page({
   },
   
   onBorrowClick: function(){
-    // this.sendMessage()
-    wx.navigateTo({
-      url: '../chat/chat?toId='+this.data.owner
+    wx.redirectTo({
+      url: '../chat/chat?toId='+this.data.ownerId + '&toName=' + this.data.ownerName + '&toImage=' + this.data.ownerImage
     })
   },
 
