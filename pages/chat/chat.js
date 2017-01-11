@@ -40,27 +40,9 @@ Page({
 
   getMessage: function(){
     var that = this
-    // 创建一个迭代器，每次获取 10 条历史消息
     var messageIterator = this.conversation.createMessagesIterator({ limit: 10 });
-    // 第一次调用 next 方法，获得前 10 条消息，还有更多消息，done 为 false
     messageIterator.next().then(function(result) {
       that.parseMessage(result.value)
-      // result: {
-      //   value: [message1, ..., message10],
-      //   done: false,
-      // }
-    }).catch(console.error.bind(console));
-    // 第二次调用 next 方法，获得第 11 ~ 20 条消息，还有更多消息，done 为 false
-    messageIterator.next().then(function(result) {
-      // result: {
-      //   value: [message11, ..., message20],
-      //   done: false,
-      // }
-    }).catch(console.error.bind(console));
-    // 第二次调用 next 方法，获得第 21 条消息，没有更多消息，done 为 true
-    messageIterator.next().then(function(result) {
-      // No more messages
-      // result: { value: [message21], done: true }
     }).catch(console.error.bind(console));
   },
 
@@ -89,11 +71,9 @@ Page({
   sendMessage: function(){
     if(this.data.inputValue && this.data.inputValue != ''){
       var that = this
-      // var msg = new TextMessage(this.data.inputValue)
-      
-      // console.log(msg)
-      // msg._lcattrs = {avatarUrl: this.data.avatarUrl}
-      this.conversation.send(new TextMessage(this.data.inputValue)).then(function(message) {
+      var msg = new TextMessage(this.data.inputValue)
+      msg._lcattrs = {avatarUrl: this.data.avatarUrl}
+      this.conversation.send(msg).then(function(message) {
         console.log(message)
           that.translateMsg(message)
           that.setData({

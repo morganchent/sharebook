@@ -93,7 +93,7 @@ Page({
     "author_intro": "Amos Q. Haviv\n软件工程师，技术顾问，MEAN.IO和MEAN.JS的创建者。Amos有近十年的全栈开发经验，曾就职于多个创业公司和企业。过去的三年中，Amos一直在使用JavaScript的全栈解决方案进行开发，包括Node.js和MongoDB，以及AngularJS一类的前端MVC框架。2013年，他创建了MEAN应用的第一个样板MEAN.IO，目前在www.meanjs.org继续开发MEAN解决方案。他还在各类会议上做一些Web前沿技术的演讲。此外，他还为多家公司的开发团队提供指导。"
   },
   "owner": {
-    "nickName": "Tao",
+    "nickName": "Tom",
     "gender": 1,
     "language": "zh_CN",
     "city": "Chaoyang",
@@ -101,15 +101,7 @@ Page({
     "country": "CN",
     "avatarUrl": "http://wx.qlogo.cn/mmopen/vi_32/Q3auHgzwzM5F2yrVGmHB5PbZZb7s3BWrdcabxoDn7hiaHkdYKD2yG2iccZdcBqGBpAheOxbMCL0LLs0vMBZJymbQ/0"
   },
-  "ACL": {
-    "*": {
-      "read": true,
-      "write": true
-    }
-  },
-  "objectId": "58635a34128fe1006d093e2f",
-  "createdAt": "2016-12-28T06:22:44.871Z",
-  "updatedAt": "2016-12-28T06:22:44.871Z"
+  address: '望京SOHO'
 }
     ]
   },

@@ -1,4 +1,6 @@
-//msglist.js
+
+// 消息列表页
+// @author feiyun
 
 const AV = require('../../libs/av-weapp-min.js')
 
