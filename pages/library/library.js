@@ -175,9 +175,20 @@ Page({
   },
 
   getList: function () {
-  },
-
-  queryBookList: function (lbs) {
-
+    var that = this
+    var query = new AV.Query('Feed');
+    query.equalTo('ownerId', app.globalData.user.objectId);
+    query.find().then(function (results) {
+      var feeds = []
+      for (var i = 0; i < results.length; i++) {
+        feeds.push(results[i].attributes)
+      }
+      that.setData({
+        list: feeds
+      })
+    }, function (err) {
+      //查询失败
+      console.dir(err);
+    });
   }
 })

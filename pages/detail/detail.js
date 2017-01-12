@@ -134,6 +134,7 @@ Page({
     feed.set('whereCreated', point)
     feed.set('book', this.data.bookData)
     feed.set('owner', app.globalData.user)
+    feed.set('ownerId', app.globalData.user.objectId)
     feed.set('address', this.data.address)
     feed.save().then(function (feed) {
       console.log('objectId is ' + feed.id)
