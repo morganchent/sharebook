@@ -182,7 +182,6 @@ Page({
       var feeds = []
       for (var i = 0; i < results.length; i++) {
         feeds.push(results[i].attributes)
-        feeds.push(results[i].attributes)
       }
       that.setData({
         list: feeds
