@@ -13,40 +13,28 @@
   margin-bottom: 20rpx;
 }
 
-.body {
-  overflow: hidden;
-}
-
-.widget {
-  position: relative;
-  padding-top: 26rpx;
-  padding-bottom: 26rpx;
-  padding-left: 40rpx;
-  padding-right: 40rpx;
+.list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 20rpx;
 }
 
 .list-item {
   display: flex;
-  flex-direction: row;
-  margin-bottom: 40rpx;
-  justify-content: center;
-}
-
-.book-item {
-  display: block;
   flex-direction: column;
-  margin-left: 60rpx;
+  align-items:center;
+  width: 33%;
+  margin-bottom: 40rpx;
 }
 
 .info-header-image {
-  width: 120rpx;
   height: 176rpx;
 }
 
 .title-text {
-  display: block;
   font-size: 24rpx;
-  margin-top: 6rpx;
+  margin-top: 20rpx;
 }
 
 .author-text {
