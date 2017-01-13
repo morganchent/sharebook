@@ -1,17 +1,16 @@
 /**chat.wxss**/
 .container-chat {
-    display: block;
+    display: flex;
     flex-direction: column;
-    padding: 0rpx 0rpx;
     overflow: hidden;
 }
 
 .msg-list{
     height: 1000rpx;
-    position: relative;
     padding: 20rpx;
     background: #F7F7FA;
-    justify-content: space-between;
+    flex-grow: 1;
+    overflow: hidden;
 }
 
 .list-item{
@@ -33,7 +32,7 @@
     background: #ffffff
 }
 
-.send-item{
+.send-msg{
     height: 80rpx;
     display: flex;
     flex-direction: row;
@@ -41,12 +40,13 @@
 }
 
 .edit-text{
-    width: 78%;
     height: 100%;
     padding: 4rpx;
     background: #F7F7FA;
+    flex-grow: 1;
 }
 
 .send-button {
+    height: 100%;
     margin-left: 20rpx;
 }
