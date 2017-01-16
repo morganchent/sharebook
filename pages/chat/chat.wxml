@@ -3,9 +3,13 @@
 <view class="container-chat">
   <scroll-view scroll-y="true" class="msg-list">
     <block wx:for-items="{{list}}" wx:key="{{item.id}}">
-      <view class="list-item">
+      <view wx:if="{{item.isSend}}" class="list-item-right">
+        <text class="content-text-left">{{item.content}}</text>
         <image class="userinfo-avatar" src="{{item.avatarUrl}}" background-size="cover"></image>
-        <text class="content-text">{{item.content}}</text>
+      </view>
+      <view wx:else class="list-item-left">
+        <image class="userinfo-avatar" src="{{item.avatarUrl}}" background-size="cover"></image>
+        <text class="content-text-right">{{item.content}}</text>
       </view>
     </block>
   </scroll-view>

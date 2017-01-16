@@ -115,7 +115,8 @@ Page({
         from: '',
         content: '',
         time: '',
-        avatarUrl: ''
+        avatarUrl: '',
+        isSend: false
       }
       msg.id = message.id
       msg.from = message.from
@@ -123,6 +124,9 @@ Page({
       msg.time = message.timestamp.toJSON()
       if(message._lcattrs){
         msg.avatarUrl = message._lcattrs.avatarUrl
+      }
+      if(this.data.userName == message.from){
+        msg.isSend = true
       }
       this.data.list.push(msg)
   }

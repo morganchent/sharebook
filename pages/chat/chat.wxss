@@ -2,6 +2,7 @@
 .container-chat {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .msg-list{
@@ -9,13 +10,20 @@
     padding: 20rpx;
     background: #F7F7FA;
     overflow: hidden;
-    padding-bottom: 100rpx;
+    margin-bottom: 100rpx;
 }
 
-.list-item{
+.list-item-left{
     margin-bottom: 40rpx;
     display: flex;
     flex-direction: row;
+}
+
+.list-item-right{
+    margin-bottom: 40rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
 }
 
 .userinfo-avatar {
@@ -24,11 +32,18 @@
     border-radius: 50%;
 }
 
-.content-text{
+.content-text-right{
     margin-left: 20rpx;
     font-size: 32rpx;
     padding: 10rpx;
-    background: #ffffff
+    background: #ffffff;
+}
+
+.content-text-left{
+    margin-right: 20rpx;
+    font-size: 32rpx;
+    padding: 10rpx;
+    background: #ffffff;
 }
 
 .send-msg{
