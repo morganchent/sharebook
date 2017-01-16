@@ -2,15 +2,14 @@
 .container-chat {
     display: flex;
     flex-direction: column;
-    overflow: hidden;
 }
 
 .msg-list{
-    height: 1000rpx;
+    height: 100vh;
     padding: 20rpx;
     background: #F7F7FA;
-    flex-grow: 1;
     overflow: hidden;
+    padding-bottom: 100rpx;
 }
 
 .list-item{
@@ -33,20 +32,24 @@
 }
 
 .send-msg{
+    width: 100%;
     height: 80rpx;
     display: flex;
     flex-direction: row;
-    margin: 20rpx;
+    margin: 0;
+    position: fixed;
+    bottom: 0;
+    padding: 20rpx;
+    background: #ffffff;
 }
 
 .edit-text{
+    width: 72%;
     height: 100%;
     padding: 4rpx;
     background: #F7F7FA;
-    flex-grow: 1;
 }
 
 .send-button {
     height: 100%;
-    margin-left: 20rpx;
 }

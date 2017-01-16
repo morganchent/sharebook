@@ -3,12 +3,21 @@
 // @author feiyun
 
 const AV = require('../../libs/av-weapp-min.js')
+let EBUS = require('../../libs/ebus.js');
 
 var app = getApp()
 Page({
   data: {
     list: [
     ]
+  },
+
+  onLoad: function(){
+    EBUS.register(this, "recivedMsg", this.onRecivedMsg);
+  },
+
+  onUnload: function(){
+    EBUS.unRegister(this, null);
   },
 
   onShow: function () {
@@ -18,6 +27,10 @@ Page({
   onPullDownRefresh: function () {
     this.getList()
     wx.stopPullDownRefresh()
+  },
+
+  onRecivedMsg: function(){
+    this.getList()
   },
 
   onShareAppMessage: function () {

@@ -1,6 +1,7 @@
 //chat.js
 const AV = require('../../libs/av-weapp-min.js');
 var TextMessage = require('../../libs/realtime.weapp.min.js').TextMessage;
+let EBUS = require('../../libs/ebus.js');
 var app = getApp()
 
 var conversation;
@@ -14,6 +15,7 @@ Page({
   },
 
   onLoad: function (options) {
+    EBUS.register(this, "recivedMsg", this.onRecivedMsg);
     var that = this
     app.getUser(function (user) {
       that.setData({
@@ -22,6 +24,15 @@ Page({
       })
       that.createConversation(options.toId, options.toName, options.toImage)
     })
+  },
+
+  onUnload: function(){
+    EBUS.unRegister(this, null);
+  },
+
+  onPullDownRefresh: function () {
+    this.getMessage()
+    wx.stopPullDownRefresh()
   },
 
   createConversation: function(toId, toName, toImage){
@@ -40,7 +51,16 @@ Page({
     })
   },
 
+  onRecivedMsg: function(data){
+    if(this.conversation == data.conversation){
+      this.getMessage()
+    }
+  },
+
   getMessage: function(){
+    this.setData({
+      list: []
+    })
     var that = this
     var messageIterator = this.conversation.createMessagesIterator({ limit: 10 });
     messageIterator.next().then(function(result) {
@@ -76,12 +96,10 @@ Page({
       var msg = new TextMessage(this.data.inputValue)
       msg._lcattrs = {avatarUrl: this.data.avatarUrl}
       this.conversation.send(msg).then(function(message) {
-        console.log(message)
           that.translateMsg(message)
           that.setData({
             list: that.data.list
           })
-          console.log(that.conversation)
         }).catch(console.error);
     }else{
       wx.showToast({

@@ -1,6 +1,7 @@
 //app.js
 const AV = require('./libs/av-weapp-min.js');
 const Realtime = require('./libs/realtime.weapp.min.js').Realtime;
+let EBUS = require('./libs/ebus.js');
 
 AV.init({ 
  appId: '03v0ujkW5x90FOCtkG0FjQih-gzGzoHsz', 
@@ -31,6 +32,10 @@ App({
                 //创建IMClient
                 realtime.createIMClient(user.toJSON().nickName).then(function(IMClient){
                 that.globalData.IMClient = IMClient
+                IMClient.on('message', function(message, conversation) {
+                  EBUS.post("recivedMsg", {message: message, conversation: conversation});
+                  console.log('Message received: ' + message.text);
+                });
               })
                 // 成功，此时可在控制台中看到更新后的用户信息
                 that.globalData.user = user.toJSON()
