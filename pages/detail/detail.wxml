@@ -14,11 +14,12 @@
   <view class="summary-text">{{bookData.summary}}</view>
   <block wx:if="{{isLend == 1}}">
     <view class="divider-line"></view>
-    <picker class="lbs-picker" bindchange="bindPickerChange" value="{{index}}" range="{{lbsData}}" range-key="title">
+    <!--<picker class="lbs-picker" bindchange="bindPickerChange" value="{{index}}" range="{{lbsData}}" range-key="title">
       <view class="picker">
         所在位置：{{lbsData[index].title}}
       </view>
-    </picker>
+    </picker>-->
+    <text class="location-text" bindtap="onLocationClick">所在位置：{{lbs.name}}</text>
     <view class="divider-line"></view>
     <button class="lend-btn" size="{{primarySize}}" bindtap="onLendClick" type="primary"> 借出 </button>
   </block>
