@@ -1,0 +1,9 @@
+/**about.wxss**/
+.container {
+    padding: 20rpx;
+}
+
+.info-text{
+  color: #AAAAAA;
+    font-size: 28rpx;
+}

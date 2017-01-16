@@ -16,4 +16,10 @@ Page({
       })
     })
   },
+
+  onAboutClick: function () {
+    wx.navigateTo({
+      url: '../about/about'
+    })
+  }
 })

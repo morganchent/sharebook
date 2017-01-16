@@ -6,6 +6,6 @@
     <text class="userinfo-nickname">{{user.nickName}}</text>
   </view>
   <view class="divider-line"></view>
-  <view class="setting-item">关于</view>
+  <view class="setting-item" bindtap="onAboutClick">关于</view>
   <view class="divider-line"></view>
 </view>

@@ -6,6 +6,7 @@
     "pages/mine/mine",
     "pages/detail/detail",
     "pages/chat/chat",
+    "pages/about/about",
     "pages/logs/logs"
   ],
   "window":{
