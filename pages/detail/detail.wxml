@@ -2,26 +2,15 @@
 <!--detail.wxml-->
 <view class="container">
   <view class="info-header">
-    <image class="info-header-image" src="{{bookData.image}}"></image>
+    <image class="info-header-image" src="{{book.image}}"></image>
     <view class="info-header-texts">
-      <text class="title-text">{{bookData.title}}</text>
-      <text class="author-text">{{bookData.author[0]}}</text>
-      <text class="price-text">{{bookData.price}}</text>
-      <text class="rating-text">{{bookData.rating.average}}分</text>
+      <text class="title-text">{{book.title}}</text>
+      <text class="author-text">{{book.author[0]}}</text>
+      <text class="price-text">{{book.price}}</text>
+      <text class="rating-text">{{book.rating.average}}分</text>
     </view>
   </view>
   <view class="section-title">内容简介</view>
-  <view class="summary-text">{{bookData.summary}}</view>
-  <block wx:if="{{isLend == 1}}">
-    <view class="divider-line"></view>
-    <!--<picker class="lbs-picker" bindchange="bindPickerChange" value="{{index}}" range="{{lbsData}}" range-key="title">
-      <view class="picker">
-        所在位置：{{lbsData[index].title}}
-      </view>
-    </picker>-->
-    <text class="location-text" bindtap="onLocationClick">所在位置：{{lbs.name}}</text>
-    <view class="divider-line"></view>
-    <button class="lend-btn" size="{{primarySize}}" bindtap="onLendClick" type="primary"> 借出 </button>
-  </block>
-  <button wx:else class="lend-btn" size="{{primarySize}}" bindtap="onBorrowClick" type="primary"> 借阅 </button>
+  <view class="summary-text">{{book.summary}}</view>
+  <button class="lend-btn" size="{{primarySize}}" bindtap="onBorrowClick" type="primary"> 借阅 </button>
 </view>

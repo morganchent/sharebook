@@ -5,6 +5,7 @@
     "pages/msglist/msglist",
     "pages/mine/mine",
     "pages/detail/detail",
+    "pages/publish/publish",
     "pages/chat/chat",
     "pages/about/about",
     "pages/logs/logs"

@@ -4,10 +4,10 @@
   <button class="scan-button" bindtap="onScanBtnClick"> 扫码上传 </button>
   <view class="list">
     <block wx:for-items="{{list}}" wx:key="{{item.book.isbn10}}">
-      <navigator class="list-item" url="../detail/detail?isLend=0&isbn={{item.book.isbn10}}&owner={{item.owner.nickName}}">
+      <view class="list-item">
         <image class="info-header-image" src="{{item.book.image}}"></image>
         <text class="title-text">{{item.book.title}}</text>
-      </navigator>
+      </view>
     </block>
   </view>
 </view>

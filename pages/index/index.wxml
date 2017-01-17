@@ -3,14 +3,14 @@
 <view class="container">
   <view class="body">
     <view class="widgets">
-      <block wx:for-items="{{list}}" wx:key="{{item.book.isbn10}}">
-        <navigator class="list-item" url="../detail/detail?isLend=0&isbn={{item.book.isbn10}}&ownerId={{item.owner.objectId}}&ownerName={{item.owner.nickName}}&ownerImage={{item.owner.avatarUrl}}">
+      <block wx:for-items="{{list}}" wx:key="{{item.id}}">
+        <navigator class="list-item" url="../detail/detail?statusId={{item.id}}">
           <view class="item-layout">
-            <image class="info-header-image" src="{{item.book.image}}"></image>
+            <image class="info-header-image" src="{{item.data.book.image}}"></image>
             <view class="info-header-texts">
-              <text class="title-text">{{item.book.title}} {{item.book.rating.average}}分</text>
-              <text class="author-text">{{item.book.author[0]}}</text>
-              <text class="lbs-text">{{item.owner.nickName}} @{{item.address}}</text>
+              <text class="title-text">{{item.data.book.title}} {{item.data.book.rating.average}}分</text>
+              <text class="author-text">{{item.data.book.author[0]}}</text>
+              <text class="lbs-text">{{item.data.source.nickName}} @{{item.data.address}}</text>
             </view>
           </view>
           <view class="divider-line"></view>
