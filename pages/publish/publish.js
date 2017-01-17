@@ -7,22 +7,34 @@ var app = getApp()
 
 Page({
   data: {
+    isBookSaved: false
   },
 
   onLoad: function (options) {
     this.queryBookInfo(options.isbn)
   },
 
-  onShareAppMessage: function () {
-    return {
-      title: '飞鸽',
-      desc: '我用“飞鸽”APP借了一本《'+this.data.bookData.title+'》',
-      path: '/pages/detail/detail?isbn='+this.data.bookData.isbn10
-    }
+  queryBookInfo: function (isbn) {
+    var that = this
+    wx.showNavigationBarLoading()
+    var query = new AV.Query('Book')
+    query.equalTo('isbn13', isbn)
+    query.find().then(function (results) {
+      if (results && results.length > 0) {
+        wx.hideNavigationBarLoading()
+        that.setData({
+          bookData: results[0],
+          isBookSaved: true
+        })
+      } else {
+        that.getBookFromDouban(isbn)
+      }
+    }, function (error) {
+      that.getBookFromDouban(isbn)
+    });
   },
 
-  queryBookInfo: function(isbn){
-    wx.showNavigationBarLoading()
+  getBookFromDouban: function(isbn){
     var that = this
     wx.request({
       url: BOOK_INFO_API + isbn,
@@ -69,7 +81,6 @@ Page({
         showCancel: false,
         success: function (res) {
           if (res.confirm) {
-            console.log('用户点击确定')
           }
         }
       })
@@ -82,16 +93,19 @@ Page({
     })
   },
 
-  saveBookInfo: function(){
+  saveBookInfo: function () {
     var that = this
-    var Book = AV.Object.extend('Book')
-    var book = new Book(this.data.bookData)
-    book.save().then(function (book) {
-      console.log('book is ' + book)
-      that.saveStatus(book)
-    }, function (error) {
-      console.error(error)
-    })
+    if (this.data.isBookSaved) {
+      this.saveStatus(this.data.bookData)
+    } else {
+      var Book = AV.Object.extend('Book')
+      var book = new Book(this.data.bookData)
+      book.save().then(function (book) {
+        that.saveStatus(book)
+      }, function (error) {
+        console.error(error)
+      })
+    }
   },
 
   saveStatus: function(book){
@@ -101,7 +115,6 @@ Page({
     feed.set('book', book)
     feed.set('address', this.data.lbs.name)
     feed.send().then(function (feed) {
-      console.log('objectId is ' + feed.id)
       wx.showToast({
         title: '成功添加藏书',
         icon: 'success',

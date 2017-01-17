@@ -12,5 +12,7 @@
   </view>
   <view class="section-title">内容简介</view>
   <view class="summary-text">{{book.summary}}</view>
+  <view class="section-title">推荐人</view>
+
   <button class="lend-btn" size="{{primarySize}}" bindtap="onBorrowClick" type="primary"> 借阅 </button>
 </view>
