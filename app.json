@@ -7,6 +7,7 @@
     "pages/detail/detail",
     "pages/publish/publish",
     "pages/chat/chat",
+    "pages/profile/profile",
     "pages/about/about"
   ],
   "window":{

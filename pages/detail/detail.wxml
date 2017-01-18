@@ -14,7 +14,7 @@
   <view class="summary-text">{{book.summary}}</view>
   <view class="section-title">分享人</view>
   <view class="info-header">
-    <image class="userinfo-avatar" src="{{source.avatarUrl}}" background-size="cover"></image>
+    <image class="userinfo-avatar" src="{{source.avatarUrl}}" background-size="cover" bindtap="onOwnerImageClick"></image>
     <text class="nickname">{{source.nickName}}</text>
   </view>
   <text class="content">{{message}}</text>

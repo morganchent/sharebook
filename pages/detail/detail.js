@@ -40,4 +40,11 @@ Page({
       url: '../chat/chat?toId=' + source.objectId + '&toName=' + source.nickName + '&toImage=' + source.avatarUrl
     })
   },
+
+  onOwnerImageClick: function(){
+    var source = this.data.source.toJSON()
+    wx.navigateTo({
+      url: '../profile/profile?userId=' + source.objectId
+    })
+  }
 })

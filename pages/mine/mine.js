@@ -6,19 +6,30 @@ Page({
   data: {
     user: {}
   },
+
   onLoad: function (options) {
     var that = this
-    app.getUser(function(user){
-      that.setData({
-        user:user
+    if (options && options.userId) {
+      var query = new AV.Query('_User');
+      query.get(options.userId).then(function (user) {
+        this.setData({
+          user: user
+        })
+        this.getList()
+      }, function (error) {
+        // 异常处理
+      });
+    } else {
+      this.setData({
+        user: AV.User.current()
       })
-      that.getList()
-    })
+      this.getList()
+    }
   },
 
   getList: function () {
     var that = this
-    var query = AV.Status.inboxQuery(AV.User.current());
+    var query = AV.Status.inboxQuery(this.data.user);
     query.include('book')
     query.find().then(function(statuses){
       var feeds = []
