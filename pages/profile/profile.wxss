@@ -1,0 +1,115 @@
+/**mine.wxss**/
+.container {
+  height: 100%;
+  display: block;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0rpx 0rpx;
+  box-sizing: border-box;
+}
+
+.head {
+  height: 100rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 20rpx 60rpx 20rpx 50rpx;
+}
+
+.userinfo-avatar {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+
+.info-text {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30rpx;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+  font-size: 28rpx;
+}
+
+.userinfo-area {
+  color: #aaa;
+  font-size: 28rpx;
+  margin-bottom: 20rpx;
+}
+
+.info-icon-layout{
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  justify-content: flex-end;
+}
+
+.info-icon {
+  width: 32rpx;
+  height: 32rpx;
+}
+
+.info-btn {
+  display: flex;
+  flex-direction: column;
+}
+
+.divider-line{
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.section-line{
+  margin-bottom: 30rpx;
+  height: 20rpx;
+  display: block;
+  background: #F7F7FA;
+}
+
+.setting-item{
+  display: block;
+  font-size: 36rpx;
+  padding-left: 20rpx;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 20rpx;
+}
+
+.list-item {
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  width: 33%;
+  margin-bottom: 40rpx;
+}
+
+.add-image {
+  width: 136rpx;
+  height: 171rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  align-self: center;
+}
+
+.info-header-image {
+  width:  136rpx;
+  height: 171rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+
+.title-text {
+  font-size: 24rpx;
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
