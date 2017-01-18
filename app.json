@@ -7,13 +7,12 @@
     "pages/detail/detail",
     "pages/publish/publish",
     "pages/chat/chat",
-    "pages/about/about",
-    "pages/logs/logs"
+    "pages/about/about"
   ],
   "window":{
     "backgroundTextStyle":"dark",
     "navigationBarBackgroundColor": "#37363C",
-    "navigationBarTitleText": "飞鸽",
+    "navigationBarTitleText": "传阅",
     "navigationBarTextStyle":"white"
   },
   "tabBar": {
@@ -22,11 +21,6 @@
       "text": "首页",
       "iconPath": "image/home-normal.png",
       "selectedIconPath": "image/home.png"
-    },{
-      "pagePath": "pages/library/library",
-      "text": "藏书",
-      "iconPath": "image/book-normal.png",
-      "selectedIconPath": "image/book.png"
     },{
       "pagePath": "pages/msglist/msglist",
       "text": "消息",

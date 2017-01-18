@@ -12,22 +12,34 @@
     display: block;
     font-size: 28rpx;
     color: #999999;
-    margin-bottom: 50rpx;
+    margin-bottom: 100rpx;
 }
 
-.location-text{
-    display: block;
+.info-header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 20rpx;
+  margin-bottom: 30rpx;
+}
+
+.userinfo-avatar {
+    width: 72rpx;
+    height: 72rpx;
+    border-radius: 50%;
+}
+
+.nickname{
+    margin-left: 20rpx;
     font-size: 28rpx;
-    margin-top: 30rpx;
-    margin-bottom: 30rpx;
+    color: #999999;
+}
+
+.content{
+    font-size: 28rpx;
+    color: #999999;
 }
 
 .lend-btn{
     margin-top: 100rpx;
-}
-
-.lbs-picker{
-    margin-top: 20rpx;
-    margin-bottom: 20rpx;
-    font-size: 32rpx;
 }

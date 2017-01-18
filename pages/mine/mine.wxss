@@ -4,27 +4,45 @@
   display: block;
   flex-direction: column;
   justify-content: space-between;
-  padding: 20rpx 0rpx;
+  padding: 0rpx 0rpx;
   box-sizing: border-box;
 }
 
-.userinfo {
+.head {
+  height: 150rpx;
   display: flex;
-  flex-direction: column;
-  margin-top: 50rpx;
-  margin-bottom: 50rpx;
+  flex-direction: row;
   align-items: center;
+  padding: 20rpx;
 }
 
 .userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
+  width: 96rpx;
+  height: 96rpx;
   border-radius: 50%;
+  margin-right: 20rpx;
+}
+
+.info-text {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30rpx;
 }
 
 .userinfo-nickname {
   color: #aaa;
+  font-size: 28rpx;
+}
+
+.userinfo-area {
+  color: #aaa;
+  font-size: 28rpx;
+  margin-bottom: 20rpx;
+}
+
+.info-btn {
+  display: flex;
+  flex-direction: column;
 }
 
 .divider-line{
@@ -33,7 +51,6 @@
 }
 
 .section-line{
-  margin-top: 30rpx;
   margin-bottom: 30rpx;
   height: 20rpx;
   display: block;
@@ -46,4 +63,47 @@
   padding-left: 20rpx;
   margin-top: 30rpx;
   margin-bottom: 30rpx;
+}
+
+.list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 20rpx;
+}
+
+.list-item {
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content: center;
+  width: 33%;
+  padding: 20rpx 0rpx;
+  margin-bottom: 40rpx;
+}
+
+.info-image {
+  width: 64rpx;
+  height: 64rpx;
+}
+
+.add-image {
+  width: 100rpx;
+  height: 100rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  align-self: center;
+}
+
+.info-header-image {
+  height: 176rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+
+.title-text {
+  font-size: 24rpx;
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
 }

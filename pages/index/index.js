@@ -20,8 +20,8 @@ Page({
 
   onShareAppMessage: function () {
     return {
-      title: '飞鸽',
-      desc: '我正在使用“飞鸽”APP和附近的人共享书籍，一起来吧',
+      title: '传阅',
+      desc: '我正在使用“传阅”APP和附近的人共享书籍，一起来吧',
       path: '/pages/index/index'
     }
   },
@@ -52,7 +52,6 @@ Page({
       that.setData({
         list: feeds
       })
-      console.log(that.data.list)
     }, function (error) {
     });
   }

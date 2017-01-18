@@ -10,10 +10,7 @@
       <text class="rating-text">{{bookData.rating.average}}分</text>
     </view>
   </view>
-  <view class="section-title">内容简介</view>
-  <view class="summary-text">{{bookData.summary}}</view>
-  <view class="divider-line"></view>
   <text class="location-text" bindtap="onLocationClick">所在位置：{{lbs.name}}</text>
-  <view class="divider-line"></view>
-  <button class="lend-btn" size="{{primarySize}}" bindtap="onLendClick" type="primary"> 借出 </button>
+  <input class="edit-text" bindinput="bindKeyInput" placeholder="说点什么" auto-focus/>
+  <button class="lend-btn" size="{{primarySize}}" bindtap="onLendClick" type="primary"> 分享 </button>
 </view>

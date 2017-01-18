@@ -86,10 +86,10 @@ Page({
       })
     }
   },
-  
-  onBorrowClick: function(){
-    wx.redirectTo({
-      url: '../chat/chat?toId='+this.data.ownerId + '&toName=' + this.data.ownerName + '&toImage=' + this.data.ownerImage
+
+  bindKeyInput: function(e) {
+    this.setData({
+      inputValue: e.detail.value
     })
   },
 
@@ -109,7 +109,7 @@ Page({
   },
 
   saveStatus: function(book){
-    var feed = new AV.Status('', '这本书不错！');
+    var feed = new AV.Status('', this.data.inputValue);
     var point = new AV.GeoPoint(this.data.lbs.latitude, this.data.lbs.longitude)
     feed.set('whereCreated', point)
     feed.set('book', book)

@@ -20,13 +20,16 @@ Page({
 
   onShareAppMessage: function () {
     return {
-      title: '飞鸽',
-      desc: '我正在使用“飞鸽”APP和附近的人共享书籍，一起来吧',
+      title: '传阅',
+      desc: '我正在使用“传阅”APP和附近的人共享书籍，一起来吧',
       path: '/pages/index/index'
     }
   },
 
   onScanBtnClick: function () {
+    // wx.navigateTo({
+    //   url: '../publish/publish?isbn=9787115310699'
+    // })
     wx.scanCode({
       success: (res) => {
         wx.navigateTo({
@@ -44,7 +47,6 @@ Page({
       var feeds = []
       for (var i = 0; i < statuses.length; i++) {
         feeds.push(statuses[i].data)
-        console.log(statuses[i].data)
       }
       that.setData({
         list: feeds

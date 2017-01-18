@@ -18,8 +18,7 @@
 .location-text{
     display: block;
     font-size: 28rpx;
-    margin-top: 30rpx;
-    margin-bottom: 30rpx;
+    margin-top: 60rpx;
 }
 
 .lend-btn{
@@ -30,4 +29,12 @@
     margin-top: 20rpx;
     margin-bottom: 20rpx;
     font-size: 32rpx;
+}
+
+.edit-text{
+    height: 150rpx;
+    padding: 4rpx;
+    background: #F7F7FA;
+    font-size: 28rpx;
+    margin-top: 40rpx;
 }

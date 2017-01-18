@@ -14,8 +14,8 @@ Page({
 
   onShareAppMessage: function () {
     return {
-      title: '飞鸽',
-      desc: '我用“飞鸽”APP借了一本《' + this.data.bookData.title + '》',
+      title: '传阅',
+      desc: '我用“传阅”APP借了一本《' + this.data.bookData.title + '》',
       path: '/pages/detail/detail?statusId=' + this.data.bookData.isbn10
     }
   },
