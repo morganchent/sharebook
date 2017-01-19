@@ -53,45 +53,8 @@
 }
 
 .section-title{
-    margin-top: 0rpx;
+    margin-top: 10rpx;
+    margin-bottom: 0rpx;
     padding: 20rpx 30rpx;
     font-size: 28rpx;
-}
-
-.list {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin-top: 50rpx;
-  margin-bottom: 20rpx;
-}
-
-.list-item {
-  display: flex;
-  flex-direction: column;
-  align-items:center;
-  width: 33%;
-  margin-bottom: 40rpx;
-}
-
-.add-image {
-  width: 136rpx;
-  height: 171rpx;
-  margin-left: 20rpx;
-  margin-right: 20rpx;
-  align-self: center;
-}
-
-.info-header-image {
-  width:  136rpx;
-  height: 171rpx;
-  margin-left: 20rpx;
-  margin-right: 20rpx;
-}
-
-.title-text {
-  font-size: 24rpx;
-  margin-top: 20rpx;
-  margin-left: 20rpx;
-  margin-right: 20rpx;
 }

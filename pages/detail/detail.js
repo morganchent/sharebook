@@ -5,6 +5,7 @@ var app = getApp()
 
 Page({
   data: {
+    isMine: true
   },
 
   onLoad: function (options) {
@@ -28,21 +29,25 @@ Page({
     query.include('book');
     query.get(statusId).then(function (status) {
       wx.hideNavigationBarLoading()
-      that.setData(status.attributes)
+      var isMine = (status.attributes.source.toJSON().objectId == AV.User.current().id)
+      console.log(that.isMine)
+      that.setData({
+        status: status.attributes,
+        isMine: isMine})
     }, function (err) {
       console.dir(err);
     });
   },
 
   onBorrowClick: function () {
-    var source = this.data.source.toJSON()
+    var source = this.data.status.source.toJSON()
     wx.redirectTo({
       url: '../chat/chat?toId=' + source.objectId + '&toName=' + source.nickName + '&toImage=' + source.avatarUrl
     })
   },
 
   onOwnerImageClick: function(){
-    var source = this.data.source.toJSON()
+    var source = this.data.status.source.toJSON()
     wx.navigateTo({
       url: '../profile/profile?userId=' + source.objectId
     })

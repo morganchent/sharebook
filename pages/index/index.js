@@ -39,7 +39,7 @@ Page({
     query.include('source');
     query.include('book');
     var point = new AV.GeoPoint(lbs.latitude, lbs.longitude);
-    // query.withinKilometers('whereCreated', point, 2.0);
+    query.withinKilometers('whereCreated', point, 2.0);
     query.find().then(function (results) {
       var feeds = []
       for (var i = 0; i < results.length; i++) {

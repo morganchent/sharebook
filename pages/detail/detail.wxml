@@ -2,21 +2,21 @@
 <!--detail.wxml-->
 <view class="container">
   <view class="info-header">
-    <image class="info-header-image" src="{{book.image}}"></image>
+    <image class="info-header-image" src="{{status.book.image}}"></image>
     <view class="info-header-texts">
-      <text class="title-text">{{book.title}}</text>
-      <text class="author-text">{{book.author[0]}}</text>
-      <text class="price-text">{{book.price}}</text>
-      <text class="rating-text">{{book.rating.average}}分</text>
+      <text class="title-text">{{status.book.title}}</text>
+      <text class="author-text">{{status.book.author[0]}}</text>
+      <text class="price-text">{{status.book.price}}</text>
+      <text class="rating-text">{{status.book.rating.average}}分</text>
     </view>
   </view>
   <view class="section-title">内容简介</view>
-  <view class="summary-text">{{book.summary}}</view>
+  <view class="summary-text">{{status.book.summary}}</view>
   <view class="section-title">分享人</view>
   <view class="info-header">
-    <image class="userinfo-avatar" src="{{source.avatarUrl}}" background-size="cover" bindtap="onOwnerImageClick"></image>
-    <text class="nickname">{{source.nickName}}</text>
+    <image class="userinfo-avatar" src="{{status.source.avatarUrl}}" background-size="cover" bindtap="onOwnerImageClick"></image>
+    <text class="nickname">{{status.source.nickName}}</text>
   </view>
-  <text class="content">{{message}}</text>
-  <button class="lend-btn" size="{{primarySize}}" bindtap="onBorrowClick" type="primary"> 借阅 </button>
+  <text class="content">{{status.message}}</text>
+  <button class="lend-btn" size="{{primarySize}}" bindtap="onBorrowClick" type="primary" wx:if="{{!isMine}}"> 借阅 </button>
 </view>

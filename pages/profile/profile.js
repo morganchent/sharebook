@@ -1,4 +1,4 @@
-//mine.js
+//profile.js
 const AV = require('../../libs/av-weapp-min.js')
 var app = getApp()
 
@@ -10,7 +10,7 @@ Page({
 
   onLoad: function (options) {
     var that = this
-    if (options && options.userId && options.userId != AV.User.current().objectId) {
+    if (options && options.userId && options.userId != AV.User.current().id) {
       var query = new AV.Query('_User');
       query.get(options.userId).then(function (user) {
         console.log(user)
@@ -38,9 +38,14 @@ Page({
     query.find().then(function(statuses){
       var feeds = []
       for (var i = 0; i < statuses.length; i++) {
-        feeds.push(statuses[i].data)
+        feeds.push({
+          data: statuses[i].data, 
+          id: statuses[i].id})
       }
-      feeds.push({})
+      //增加扫码入口占位
+      if(that.data.isMine){
+        feeds.push({})
+      }
       that.setData({
         list: feeds
       })

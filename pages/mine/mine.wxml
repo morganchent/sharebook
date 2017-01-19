@@ -2,25 +2,12 @@
 <!--mine.wxml-->
 <view class="container">
   <view class="info-layout">
-    <!--<view class="info-icon-layout">
-      <image class="info-icon" src="../../image/info.png" bindtap="onAboutClick"></image>
-    </view>-->
     <view class="head">
       <image class="userinfo-avatar" src="{{user.avatarUrl}}" background-size="cover"></image>
       <text class="userinfo-nickname">{{user.nickName}}</text>
     </view>
   </view>
   <view class="section-line"></view>
-  <!--<view class="section-title">收藏图书</view>-->
-  <view class="list">
-    <block wx:for-items="{{list}}" wx:key="{{item.book.isbn10}}">
-      <view wx:if="{{item.book}}" class="list-item">
-        <image class="info-header-image" src="{{item.book.image}}"></image>
-        <text class="title-text">{{item.book.title}}</text>
-      </view>
-      <view class="list-item" wx:else>
-        <image class="add-image" src="../../image/add.png" bindtap="onScanBtnClick"></image>
-      </view>
-    </block>
-  </view>
+  <view class="section-title" bindtap="onLibraryClick">我的藏书</view>
+  <view class="section-title" bindtap="onAboutClick">关于</view>
 </view>

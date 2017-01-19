@@ -1,23 +1,23 @@
 
-<!--mine.wxml-->
+<!--profile.wxml-->
+
 <view class="container">
-  <view class="head">
-    <image class="userinfo-avatar" src="{{user.avatarUrl}}" background-size="cover"></image>
-    <text class="userinfo-nickname">{{user.nickName}}</text>
-    <view wx:if="{{isMine}}" class="info-icon-layout">
-    <image class="info-icon" src="../../image/info.png"  bindtap="onAboutClick"></image>
+  <view class="info-layout">
+    <view class="head">
+      <image class="userinfo-avatar" src="{{user.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{user.nickName}}</text>
     </view>
   </view>
   <view class="section-line"></view>
-
+  <!--<view class="section-title">收藏图书</view>-->
   <view class="list">
-    <block wx:for-items="{{list}}" wx:key="{{item.book.isbn10}}">
-      <view wx:if="{{item.book}}" class="list-item">
-        <image class="info-header-image" src="{{item.book.image}}"></image>
-        <text class="title-text">{{item.book.title}}</text>
-      </view>
+    <block wx:for-items="{{list}}" wx:key="{{item.data.book.isbn10}}">
+      <navigator wx:if="{{item.data.book}}" class="list-item" url="../detail/detail?statusId={{item.id}}">
+        <image class="info-header-image" src="{{item.data.book.image}}"></image>
+        <text class="title-text">{{item.data.book.title}}</text>
+      </navigator>
       <view class="list-item" wx:else>
-        <image class="add-image" src="../../image/add.png"  bindtap="onScanBtnClick"></image>
+        <image class="add-image" src="../../image/add.png" bindtap="onScanBtnClick"></image>
       </view>
     </block>
   </view>
