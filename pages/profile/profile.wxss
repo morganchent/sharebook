@@ -9,7 +9,7 @@
 }
 
 .info-layout {
-  height: 300rpx;
+  height: 240rpx;
   display: flex;
   flex-direction: column;
   justify-content: center;
