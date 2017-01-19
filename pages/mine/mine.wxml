@@ -2,9 +2,9 @@
 <!--mine.wxml-->
 <view class="container">
   <view class="info-layout">
-    <view class="info-icon-layout">
+    <!--<view class="info-icon-layout">
       <image class="info-icon" src="../../image/info.png" bindtap="onAboutClick"></image>
-    </view>
+    </view>-->
     <view class="head">
       <image class="userinfo-avatar" src="{{user.avatarUrl}}" background-size="cover"></image>
       <text class="userinfo-nickname">{{user.nickName}}</text>

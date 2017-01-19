@@ -12,6 +12,7 @@
   height: 300rpx;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   padding: 50rpx;
 }
 
