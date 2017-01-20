@@ -53,8 +53,8 @@
 }
 
 .section-title{
-    margin-top: 10rpx;
+    margin-top: 0rpx;
     margin-bottom: 0rpx;
-    padding: 20rpx 30rpx;
-    font-size: 28rpx;
+    padding: 30rpx 30rpx;
+    font-size: 32rpx;
 }

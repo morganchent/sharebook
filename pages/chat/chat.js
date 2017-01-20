@@ -11,7 +11,7 @@ Page({
     list: [],
     hasMoreMsg: false,
     avatarUrl: '',
-    textIsEmpty: true
+    message: '',
   },
 
   onLoad: function (options) {
@@ -69,24 +69,31 @@ Page({
   },
 
   parseMessage: function(messages){
+    var id
     for(var i=0;i<messages.length;i++)
     {
       this.translateMsg(messages[i])
+      id = messages[i].id
     }
     this.setData({
-      list: this.data.list
+      list: this.data.list,
+      toView: id
     })
+    console.log(id)
+    console.log(this.data.toView)
   },
   
   bindKeyInput: function(e) {
     this.setData({
       inputValue: e.detail.value,
-      textIsEmpty: (e.detail.value == '')
     })
   },
 
-  onSendBtnClick: function(){
+  bindconfirm: function(e){
     this.sendMessage()
+    this.setData({
+      message: ''
+    })
   },
   
 
@@ -98,8 +105,11 @@ Page({
       this.conversation.send(msg).then(function(message) {
           that.translateMsg(message)
           that.setData({
-            list: that.data.list
+            list: that.data.list,
+            toView: message.id
           })
+          console.log(that.data.toView)
+          console.log(message.id)
         }).catch(console.error);
     }else{
       wx.showToast({
