@@ -69,18 +69,18 @@ Page({
   },
 
   parseMessage: function(messages){
-    var id
+    var viewId
     for(var i=0;i<messages.length;i++)
     {
       this.translateMsg(messages[i])
-      id = messages[i].id
+      viewId = messages[i].id.replace("+","")
     }
     this.setData({
       list: this.data.list,
-      toView: id
     })
-    console.log(id)
-    console.log(this.data.toView)
+    this.setData({
+      toView: viewId
+    })
   },
   
   bindKeyInput: function(e) {
@@ -106,10 +106,10 @@ Page({
           that.translateMsg(message)
           that.setData({
             list: that.data.list,
-            toView: message.id
           })
-          console.log(that.data.toView)
-          console.log(message.id)
+          that.setData({
+            toView: message.id.replace("+",""),
+          })
         }).catch(console.error);
     }else{
       wx.showToast({
@@ -128,7 +128,7 @@ Page({
         avatarUrl: '',
         isSend: false
       }
-      msg.id = message.id
+      msg.id = message.id.replace("+","")
       msg.from = message.from
       msg.content = message._lctext
       msg.time = message.timestamp.toJSON()

@@ -1,16 +1,18 @@
 
 <!--chat.wxml-->
 <view class="container-chat">
-  <scroll-view scroll-y="true" class="msg-list" scroll-into-view="{{toView}}">
+  <scroll-view  style="height: 100vh;" scroll-y="true" class="msg-list" scroll-into-view="{{toView}}">
     <block wx:for-items="{{list}}" wx:key="{{item.id}}">
-      <view wx:if="{{item.isSend}}" class="list-item-right" id="{{item.id}}">
+    <view id="{{item.id}}">
+      <view wx:if="{{item.isSend}}" class="list-item-right">
         <text class="content-text-left">{{item.content}}</text>
         <image class="userinfo-avatar" src="{{item.avatarUrl}}" background-size="cover"></image>
       </view>
-      <view wx:else class="list-item-left" id="{{item.id}}">
+      <view wx:else class="list-item-left">
         <image class="userinfo-avatar" src="{{item.avatarUrl}}" background-size="cover"></image>
         <text class="content-text-right">{{item.content}}</text>
       </view>
+    </view>
     </block>
   </scroll-view>
   <view class="send-msg">
