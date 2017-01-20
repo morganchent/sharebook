@@ -1,9 +1,9 @@
 {
   "pages":[
-    "pages/msglist/msglist",
     "pages/index/index",
-    "pages/library/library",
+    "pages/msglist/msglist",
     "pages/mine/mine",
+    "pages/library/library",
     "pages/detail/detail",
     "pages/publish/publish",
     "pages/chat/chat",
