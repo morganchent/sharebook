@@ -5,7 +5,7 @@
     <image class="info-header-image" src="{{bookData.image}}"></image>
     <view class="info-header-texts">
       <text class="title-text">{{bookData.title}}</text>
-      <text class="author-text">{{bookData.author[0]}}</text>
+      <text class="author-text">{{bookData.author}}</text>
       <text class="price-text">{{bookData.price}}</text>
       <text class="rating-text">{{bookData.rating.average}}分</text>
     </view>

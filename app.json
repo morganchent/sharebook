@@ -13,7 +13,7 @@
   "window":{
     "backgroundTextStyle":"dark",
     "navigationBarBackgroundColor": "#37363C",
-    "navigationBarTitleText": "传阅",
+    "navigationBarTitleText": "漫步途书",
     "navigationBarTextStyle":"white"
   },
   "tabBar": {

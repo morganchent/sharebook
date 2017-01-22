@@ -19,29 +19,36 @@
 }
 
 .info-header-texts{
-  display: block;
+  width: 550rpx;
+  display: flex;
   flex-direction: column;
-  align-items: center;
   margin-left: 20rpx;
 }
 
 .title-text{
-  display: block;
+  margin-top: 2rpx;
   font-size: 40rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .author-text{
-  display: block;
-  font-size: 24rpx;
+  font-size: 28rpx;
   color: #AAAAAA;
-  margin-top: 4rpx;
+  margin-top: 10rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .price-text{
-  display: block;
   font-size: 36rpx;
   color: #FDBC40;
-  margin-top: 4rpx;
+  margin-top: 10rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .rating-text{

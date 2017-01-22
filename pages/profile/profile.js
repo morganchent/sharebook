@@ -33,8 +33,8 @@ Page({
 
   onShareAppMessage: function () {
     return {
-      title: '传阅',
-      desc: '我正在使用“传阅”APP和附近的人共享书籍，来看看我的藏书吧！',
+      title: '漫步途书',
+      desc: '我正在使用“漫步途书”APP和附近的人共享书籍，来看看我的藏书吧！',
       path: '/pages/profile/profile?userId='+ this.data.user.id
     }
   },

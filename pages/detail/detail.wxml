@@ -5,7 +5,7 @@
     <image class="info-header-image" src="{{status.book.image}}"></image>
     <view class="info-header-texts">
       <text class="title-text">{{status.book.title}}</text>
-      <text class="author-text">{{status.book.author[0]}}</text>
+      <text class="author-text">{{status.book.author}}</text>
       <text class="price-text">{{status.book.price}}</text>
       <text class="rating-text">{{status.book.rating.average}}分</text>
     </view>

@@ -21,7 +21,7 @@
 }
 
 .list-item {
-  display: block;
+  display: flex;
   flex-direction: column;
 }
 
@@ -37,33 +37,13 @@
 }
 
 .title-text {
-  display: block;
   font-size: 36rpx;
-  margin-top: 6rpx;
-}
-
-.author-text {
-  display: block;
-  font-size: 28rpx;
-  color: #aaa;
-  margin-top: 6rpx;
-}
-
-.price-text {
-  display: block;
-  font-size: 28rpx;
-  color: #fdbc40;
-  margin-top: 6rpx;
-}
-
-.rating-text {
-  display: block;
-  font-size: 28rpx;
-  margin-top: 6rpx;
 }
 
 .lbs-text {
-  display: block;
   font-size: 32rpx;
-  margin-top: 6rpx;
+  margin-top: 10rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }

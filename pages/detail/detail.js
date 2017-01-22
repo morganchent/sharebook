@@ -15,8 +15,8 @@ Page({
 
   onShareAppMessage: function () {
     return {
-      title: '传阅',
-      desc: '我用“传阅”APP借了一本《' + this.data.bookData.title + '》',
+      title: '漫步途书',
+      desc: '我用“漫步途书”APP借了一本《' + this.data.bookData.title + '》',
       path: '/pages/detail/detail?statusId=' + this.data.bookData.isbn10
     }
   },
