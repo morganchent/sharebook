@@ -9,4 +9,6 @@
 
 3.如何借阅书？
 首页能看到附近共享的书，进入详情页后，点击借阅按钮。</text>
+
+<contact-button size="20" session-from="weapp"/>
 </view>
