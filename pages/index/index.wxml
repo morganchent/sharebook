@@ -8,7 +8,7 @@
           <view class="item-layout">
             <image class="info-header-image" src="{{item.data.book.image}}"></image>
             <view class="info-header-texts">
-              <text class="title-text">{{item.data.book.title}} {{item.data.book.rating.average}}分</text>
+              <text class="title-text">{{item.data.book.title}}</text>
               <text class="author-text">{{item.data.book.author}}</text>
               <text class="lbs-text">{{item.data.address}}</text>
             </view>

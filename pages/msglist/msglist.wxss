@@ -27,9 +27,8 @@
 }
 
 .item-texts {
-  display: block;
+  display: flex;
   flex-direction: column;
-  align-items: center;
   margin-left: 20rpx;
 }
 
@@ -41,6 +40,6 @@
 .text-msg{
   display: block;
   font-size: 28rpx;
-  margin-top: 30rpx;
+  margin-top: 20rpx;
   color: #7B7B7D;
 }

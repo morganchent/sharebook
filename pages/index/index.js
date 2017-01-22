@@ -34,6 +34,7 @@ Page({
   },
 
   queryBookList: function (lbs) {
+    wx.showNavigationBarLoading()
     var that = this
     var query = AV.Status.statusQuery();
     query.include('source');
@@ -52,7 +53,9 @@ Page({
       that.setData({
         list: feeds
       })
+      wx.hideNavigationBarLoading()
     }, function (error) {
+      wx.hideNavigationBarLoading()
     });
   }
 })

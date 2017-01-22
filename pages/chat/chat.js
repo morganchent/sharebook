@@ -12,10 +12,14 @@ Page({
     hasMoreMsg: false,
     avatarUrl: '',
     message: '',
+     focus: true
   },
 
   onLoad: function (options) {
     EBUS.register(this, "recivedMsg", this.onRecivedMsg);
+    wx.setNavigationBarTitle({
+      title: options.toName
+    })
     var that = this
     app.getUser(function (user) {
       that.setData({
@@ -92,7 +96,8 @@ Page({
   bindconfirm: function(e){
     this.sendMessage()
     this.setData({
-      message: ''
+      message: '',
+      focus: true
     })
   },
   

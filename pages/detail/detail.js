@@ -30,7 +30,6 @@ Page({
     query.get(statusId).then(function (status) {
       wx.hideNavigationBarLoading()
       var isMine = (status.attributes.source.toJSON().objectId == AV.User.current().id)
-      console.log(that.isMine)
       that.setData({
         status: status.attributes,
         isMine: isMine})

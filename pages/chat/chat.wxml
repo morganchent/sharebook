@@ -1,7 +1,7 @@
 
 <!--chat.wxml-->
 <view class="container-chat">
-  <scroll-view  style="height: 100vh;" scroll-y="true" class="msg-list" scroll-into-view="{{toView}}">
+  <scroll-view  style="height: 90vh;" scroll-y="true" class="msg-list" scroll-into-view="{{toView}}">
     <block wx:for-items="{{list}}" wx:key="{{item.id}}">
     <view id="{{item.id}}">
       <view wx:if="{{item.isSend}}" class="list-item-right">
@@ -16,6 +16,6 @@
     </block>
   </scroll-view>
   <view class="send-msg">
-    <input class="edit-text" value="{{message}}" bindinput="bindKeyInput" bindconfirm="bindconfirm" placeholder="" auto-focus/>
+    <input class="edit-text" value="{{message}}" bindinput="bindKeyInput" bindconfirm="bindconfirm" placeholder="发送消息" focus="{{focus}}" auto-focus/>
   </view>
 </view>

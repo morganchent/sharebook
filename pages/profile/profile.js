@@ -8,12 +8,15 @@ Page({
     isMine: false
   },
 
+  onShow: function () {
+    this.getList()
+  },
+
   onLoad: function (options) {
     var that = this
     if (options && options.userId && options.userId != AV.User.current().id) {
       var query = new AV.Query('_User');
       query.get(options.userId).then(function (user) {
-        console.log(user)
         that.setData({
           user: user,
           isMine: false
@@ -27,7 +30,6 @@ Page({
         user: AV.User.current(),
           isMine: true
       })
-      this.getList()
     }
   },
 
@@ -57,7 +59,6 @@ Page({
       that.setData({
         list: feeds
       })
-      console.log(that.data.list)
     }, function(err){
       console.dir(err);
     });
