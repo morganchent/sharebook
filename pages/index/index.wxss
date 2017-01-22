@@ -36,12 +36,8 @@
   height: 176rpx;
 }
 
-.title-text {
-  font-size: 36rpx;
-}
-
 .lbs-text {
-  font-size: 32rpx;
+  font-size: 28rpx;
   margin-top: 10rpx;
   overflow: hidden;
   white-space: nowrap;

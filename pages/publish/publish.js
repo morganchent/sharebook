@@ -64,6 +64,10 @@ Page({
     var that = this
     wx.chooseLocation({
       success: function (res) {
+        //android手机第一个地址的name为""
+        if(res.name == ""){
+          res.name = res.address
+        }
         that.setData({
           lbs: res
         })
@@ -109,8 +113,10 @@ Page({
   },
 
   saveStatus: function(book){
-    var feed = new AV.Status('', this.data.inputValue);
-    var point = new AV.GeoPoint(this.data.lbs.latitude, this.data.lbs.longitude)
+    var feed = new AV.Status('', this.data.inputValue)
+    var latitude = parseFloat(this.data.lbs.latitude)
+    var longitude = parseFloat(this.data.lbs.longitude)
+    var point = new AV.GeoPoint(latitude, longitude)
     feed.set('whereCreated', point)
     feed.set('book', book)
     feed.set('address', this.data.lbs.name)
