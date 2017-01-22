@@ -76,23 +76,25 @@
 }
 
 .add-image {
-  width: 136rpx;
-  height: 171rpx;
+  width: 180rpx;
+  height: 262.8rpx;
   margin-left: 20rpx;
   margin-right: 20rpx;
   align-self: center;
 }
 
 .info-header-image {
-  width:  136rpx;
-  height: 171rpx;
+  width:  180rpx;
+  height: 262.8rpx;
   margin-left: 20rpx;
   margin-right: 20rpx;
 }
 
 .title-text {
+  width:  180rpx;
   font-size: 24rpx;
-  margin-top: 20rpx;
+  margin-top: 24rpx;
   margin-left: 20rpx;
   margin-right: 20rpx;
+  text-align: center;
 }
